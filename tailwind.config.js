@@ -33,12 +33,16 @@ export default {
                 background: 'hsl(var(--background))',
                 foreground: 'hsl(var(--foreground))',
                 primary: {
-                    DEFAULT: 'hsl(var(--primary))',
-                    foreground: 'hsl(var(--primary-foreground))'
+                    DEFAULT: '#A8C6A1', // 自然浅绿
+                    foreground: '#2C3531'
                 },
                 secondary: {
-                    DEFAULT: 'hsl(var(--secondary))',
-                    foreground: 'hsl(var(--secondary-foreground))'
+                    DEFAULT: '#F7F9F6', // 极浅米白
+                    foreground: '#2C3531'
+                },
+                accent: {
+                    DEFAULT: '#5B8FA8', // 大海蓝
+                    foreground: '#ffffff'
                 },
                 destructive: {
                     DEFAULT: 'hsl(var(--destructive))',
@@ -47,10 +51,6 @@ export default {
                 muted: {
                     DEFAULT: 'hsl(var(--muted))',
                     foreground: 'hsl(var(--muted-foreground))'
-                },
-                accent: {
-                    DEFAULT: 'hsl(var(--accent))',
-                    foreground: 'hsl(var(--accent-foreground))'
                 },
                 popover: {
                     DEFAULT: 'hsl(var(--popover))',
@@ -127,6 +127,10 @@ export default {
                         transform: 'translateY(0)'
                     }
                 },
+                'fade-in-up': {
+                    '0%': { opacity: '0', transform: 'translateY(20px)' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' }
+                },
                 'slide-in': {
                     from: {
                         opacity: '0',
@@ -142,6 +146,7 @@ export default {
                 'accordion-down': 'accordion-down 0.2s ease-out',
                 'accordion-up': 'accordion-up 0.2s ease-out',
                 'fade-in': 'fade-in 0.5s ease-out',
+                'fade-in-up': 'fade-in-up 0.6s ease-out forwards',
                 'slide-in': 'slide-in 0.5s ease-out'
             }
         }
