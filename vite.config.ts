@@ -6,15 +6,12 @@ import path from "path";
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: "/python-/",
   plugins: [
     react(),
     miaodaDevPlugin(),
     svgr({
-      svgrOptions: {
-        icon: true,
-        exportType: "named",
-        namedExport: "ReactComponent",
-      },
+      svgrOptions: { icon: true, exportType: "named", namedExport: "ReactComponent" },
     }),
   ],
   resolve: {
