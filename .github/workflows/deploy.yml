@@ -21,14 +21,17 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: npm
+          node-version: 24
+          cache: pnpm
+
+      - name: Enable corepack (pnpm)
+        run: corepack enable
 
       - name: Install
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: npx vite build
+        run: pnpm exec vite build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
