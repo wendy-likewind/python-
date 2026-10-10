@@ -11,7 +11,11 @@ export default defineConfig({
     react(),
     miaodaDevPlugin(),
     svgr({
-      svgrOptions: { icon: true, exportType: "named", namedExport: "ReactComponent" },
+      svgrOptions: {
+        icon: true,
+        exportType: "named",
+        namedExport: "ReactComponent",
+      },
     }),
   ],
   resolve: {
