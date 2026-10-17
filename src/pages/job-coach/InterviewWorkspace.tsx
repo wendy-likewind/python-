@@ -338,7 +338,7 @@ function PrepPanel({
       </Field>
 
       <div className="rounded-2xl border border-[#5B8FA8]/20 p-4 space-y-3">
-        <p className="text-xs font-medium tracking-wide text-[#5B8FA8]">面试官（示例请用面试官X）</p>
+        <p className="text-xs font-medium tracking-wide text-[#5B8FA8]">面试官</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <Field label="称呼">
             <Input
@@ -672,9 +672,6 @@ function CaseLibrary({
           </p>
         </div>
       )}
-      <p className="text-xs text-[#2C3531]/40">
-        本地示例入库。正式记录请用你自己的库名；勿粘贴真实 Notion 链接、雇主品牌或薪酬包。
-      </p>
       {rows.map(({ iv, job }) => (
         <button
           key={iv.id}

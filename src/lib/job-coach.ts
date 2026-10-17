@@ -135,7 +135,7 @@ export const TINA_OPPORTUNITIES: Opportunity[] = [
     riskPoints: ['部门负责人更看重稳定性与持续指标', '英语面试强度需再压 talk track'],
     sourceUrl: 'https://example.com/jobs/illustrative-bank-a',
     jdText:
-      '【示例 JD · 非真实岗位 · 已脱敏】目标外资银行A 招聘电子银行外汇产品经理，负责零售外汇交易量与体验增长，协同合规与科技。',
+      '【示例 JD】目标外资银行A 招聘电子银行外汇产品经理，负责零售外汇交易量与体验增长，协同合规与科技。',
     score: {
       jdFit: '示例：must-have 与 Tina 外汇主线对齐',
       levelFit: '示例：级别匹配电子银行 PM',
@@ -161,7 +161,7 @@ export const TINA_OPPORTUNITIES: Opportunity[] = [
     riskPoints: ['JD 偏对公则观望', '级别带宽较宽'],
     sourceUrl: 'https://example.com/jobs/illustrative-bank-b',
     jdText:
-      '【示例 JD · 已脱敏】目标外资银行B 数字银行团队，外汇与跨境相关产品（示例描述）。',
+      '【示例 JD】目标外资银行B 数字银行团队，外汇与跨境相关产品。',
     score: {
       jdFit: '示例：部分命中',
       levelFit: '示例：待当面核对',
@@ -186,7 +186,7 @@ export const TINA_OPPORTUNITIES: Opportunity[] = [
     matchPoints: ['零售外汇', '可映射漏斗增长证据'],
     riskPoints: ['与现平台业务重叠度未知'],
     sourceUrl: 'https://example.com/jobs/illustrative-bank-c',
-    jdText: '【示例 JD · 已脱敏】目标外资银行C 零售外汇产品岗位（示例）。',
+    jdText: '【示例 JD】目标外资银行C 零售外汇产品岗位。',
     score: {
       jdFit: '示例：方向接近',
       levelFit: '示例：匹配',
@@ -211,7 +211,7 @@ export const TINA_OPPORTUNITIES: Opportunity[] = [
     matchPoints: ['同雇主族可复用叙事', '电子银行经验'],
     riskPoints: ['主线若非外汇则对齐偏弱 → 倾向观望'],
     sourceUrl: 'https://example.com/jobs/illustrative-bank-a-2',
-    jdText: '【示例 JD · 已脱敏】目标外资银行A 另一条电子银行财富入口岗位（示例）。',
+    jdText: '【示例 JD】目标外资银行A 另一条电子银行财富入口岗位。',
     score: {
       jdFit: '示例：旁路机会',
       levelFit: '示例：匹配',
@@ -256,7 +256,7 @@ function tinaPrepTl(): InterviewPrep {
     opener: '对齐定位卡：电子银行外汇交易量与份额主线；用 1 个漏斗案例开场（示例）。',
     interviewerName: '面试官X（团队负责人 · 示例）',
     interviewerLens: 'tl',
-    interviewerBrief: '示例速研：团队负责人镜头 → 执行细节、协作、unblock；勿填写真实姓名。',
+    interviewerBrief: '示例速研：团队负责人镜头 → 执行细节、协作、如何解开卡点。',
     fiveWhysAnswers: '行业/雇主族/香港/为什么是我/缺口缓解 — 见定位卡（示例）。',
   };
 }

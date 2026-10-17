@@ -4,7 +4,6 @@ import { cn } from '@/lib/utils';
 import { JobCoachProvider, useJobCoach } from '@/contexts/JobCoachContext';
 import { Badge } from '@/components/ui/badge';
 import { PIPELINE_STEPS } from '@/types/job-coach';
-import { PRIVACY_BANNER } from '@/lib/job-coach-privacy';
 
 function Shell() {
   const { step1Done, positioning } = useJobCoach();
@@ -45,9 +44,7 @@ function Shell() {
               <div className="h-4 w-px bg-[#A8C6A1]/30" />
               <div className="min-w-0">
                 <p className="text-sm font-semibold tracking-tight truncate">求职陪跑</p>
-                <p className="text-[11px] text-[#2C3531]/40 truncate">
-                  香港 · 新加坡 · 深圳 · 示例草稿 · 不代投
-                </p>
+                <p className="text-[11px] text-[#2C3531]/40 truncate">香港 · 新加坡 · 深圳</p>
               </div>
             </div>
             {step1Done ? (
@@ -78,7 +75,7 @@ function Shell() {
                     ? 'bg-white text-[#2C3531]/55 border border-[#A8C6A1]/20'
                     : 'bg-[#2C3531]/5 text-[#2C3531]/35',
                 )}
-                title={g.v1 === 'next' ? '这一版先不做，留作下一步' : undefined}
+                title={g.v1 === 'next' ? '下一步' : undefined}
               >
                 {g.step}
                 {g.name}
@@ -104,7 +101,6 @@ function Shell() {
               </NavLink>
             ))}
           </nav>
-          <p className="text-[11px] text-[#2C3531]/40 leading-relaxed">{PRIVACY_BANNER}</p>
         </div>
       </header>
       <main className="max-w-5xl mx-auto px-4 md:px-6 py-8 md:py-10">

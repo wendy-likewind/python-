@@ -95,7 +95,7 @@ export default function OpportunityBoard() {
           <div className="space-y-2">
             <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">机会短名单</h1>
             <p className="text-base text-[#2C3531]/55 max-w-xl leading-relaxed">
-              看岗位、写匹配点，再决定投 / 观望 / 不投。完成定位后才能标「投」。这一版请自己粘贴职位描述，不会自动抓岗。
+              看岗位、写匹配点，再决定投 / 观望 / 不投。完成定位后才能标「投」。可自行粘贴职位描述加入列表。
             </p>
             <p className="text-sm text-[#2C3531]/45">{TINA_TARGET_COMP}</p>
           </div>
@@ -129,12 +129,12 @@ export default function OpportunityBoard() {
         <LockedNext
           icon={FileText}
           title="第三步 · 简历主线（下一步）"
-          body="这一版先不做。投递前记得简历要围着增长主线写。"
+          body="投递前建议简历围着增长主线来写。"
         />
         <LockedNext
           icon={Banknote}
           title="第七步 · 谈薪（下一步）"
-          body="公开薪资对照默认先看香港；要对比新加坡/深圳需你自己打开。这一版不做谈判流。"
+          body="谈薪前可先对照公开薪资带与个人期望。"
         />
       </div>
 
@@ -142,12 +142,9 @@ export default function OpportunityBoard() {
         <p className="text-xs font-medium tracking-wide text-[#A8C6A1]">投之前快速核对</p>
         <ul className="text-sm text-[#2C3531]/60 space-y-1">
           <li>· 定位还有效吗？{step1Done ? '是' : '还没有'}</li>
-          <li>· 这份岗位要不要先改一版主线简历？（这一版：下一步）</li>
+          <li>· 简历是否已按增长主线整理？</li>
           <li>· 公开薪资带对过了吗？（没有就写「薪资不明」）</li>
-          <li>
-            · 状态请自己改成「已投」——我们不会替你投 · 当前投 {applyCount} / 列表{' '}
-            {shortlisted}
-          </li>
+          <li>· 当前已标「投」{applyCount} · 已关注 {shortlisted}</li>
         </ul>
       </div>
 
@@ -511,9 +508,7 @@ function AddJobDialog({
           <DialogTitle>添加一个机会</DialogTitle>
         </DialogHeader>
         <div className="space-y-3 py-2">
-          <p className="text-xs text-[#2C3531]/40">
-            粘贴公开职位描述。演示请用「目标外资银行A」等占位，勿写入真实雇主品牌或私密薪酬包。
-          </p>
+          <p className="text-xs text-[#2C3531]/40">粘贴公开职位描述，补充匹配点与风险点。</p>
           <Field label="岗位名称 *">
             <Input value={title} onChange={(e) => setTitle(e.target.value)} className="rounded-xl" />
           </Field>

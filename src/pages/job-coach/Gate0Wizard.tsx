@@ -138,7 +138,7 @@ export default function Gate0Wizard() {
               下一步：看机会 <ArrowRight className="w-4 h-4" />
             </Link>
           </Button>
-          <p className="text-xs text-[#2C3531]/40">简历主线改写、谈薪：这一版先不做</p>
+          <p className="text-xs text-[#2C3531]/40">接下来可以去看机会、准备面试</p>
         </div>
       </div>
     );
@@ -153,7 +153,7 @@ export default function Gate0Wizard() {
       />
 
       <div className="rounded-2xl bg-[#5B8FA8]/5 border border-[#5B8FA8]/15 px-4 py-3 text-sm text-[#5B8FA8]">
-        完成定位前，机会最多只能「观望」。我们不会代你投递或私信。
+        完成定位前，机会最多只能「观望」。
       </div>
 
       <div className="space-y-3">
@@ -192,7 +192,7 @@ export default function Gate0Wizard() {
               <Input
                 value={targetDomain}
                 onChange={(e) => setTargetDomain(e.target.value)}
-                placeholder="例如：香港外资银行 · 外汇（勿填真实雇主品牌）"
+                placeholder="例如：香港外资银行 · 外汇"
                 className="rounded-xl bg-[#F7F9F6] border-none"
               />
             </Field>
@@ -327,9 +327,7 @@ export default function Gate0Wizard() {
                 {targetLevel} · {targetDomain}｜主线：{growthMainline || '—'}
               </span>
             </p>
-            <p className="text-xs text-[#2C3531]/40">
-              保存后才可以在机会里标「投」。简历主线改写、谈薪这一版先不做。
-            </p>
+            <p className="text-xs text-[#2C3531]/40">保存后才可以在机会里标「投」。</p>
           </div>
         )}
 
