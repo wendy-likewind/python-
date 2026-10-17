@@ -37,6 +37,11 @@ jobs:
       - name: Build
         run: pnpm exec vite build
 
+      # GitHub Pages has no server rewrite for SPA routes (/job-coach etc.).
+      # Serving the app shell as 404.html lets deep links load React Router.
+      - name: SPA fallback for GitHub Pages
+        run: cp dist/index.html dist/404.html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
