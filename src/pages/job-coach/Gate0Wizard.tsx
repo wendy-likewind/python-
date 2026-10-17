@@ -21,7 +21,7 @@ const STEPS = [
   {
     id: 'what',
     title: '1 · WHAT',
-    hint: '目标职级 + 赛道/领域（例：HK bank / virtual-bank FX·payments PM）',
+    hint: '目标职级 + 赛道/领域（示意赛道即可；勿把真实雇主名写进可分享卡）',
   },
   {
     id: 'why',
@@ -63,8 +63,8 @@ const STEPS = [
 export default function Gate0Wizard() {
   const { positioning, lockPositioning, resetPositioning } = useJobCoach();
   const [step, setStep] = useState(0);
-  const [targetLevel, setTargetLevel] = useState('高级产品经理');
-  const [targetDomain, setTargetDomain] = useState('HK virtual-bank · FX/payments');
+  const [targetLevel, setTargetLevel] = useState('高级产品经理（示意）');
+  const [targetDomain, setTargetDomain] = useState('港 fintech · 跨境支付（示意赛道）');
   const [what, setWhat] = useState('');
   const [why, setWhy] = useState('');
   const [how, setHow] = useState('');
@@ -215,7 +215,7 @@ export default function Gate0Wizard() {
               <Input
                 value={targetDomain}
                 onChange={(e) => setTargetDomain(e.target.value)}
-                placeholder="例：HK bank / virtual-bank · FX·payments PM"
+                placeholder="例：港 fintech · 跨境支付 PM（示意赛道，勿填真实雇主名）"
                 className="rounded-xl bg-[#F7F9F6] border-none"
               />
             </Field>

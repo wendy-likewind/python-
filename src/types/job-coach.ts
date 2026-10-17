@@ -201,7 +201,8 @@ export const FIVE_WHYS_LABELS: Record<keyof FiveWhys, string> = {
   whyNotMe: 'Why not me · 缺口与已缓解',
 };
 
-export const STORAGE_KEY = 'hk-fintech-jobpack-v1';
+/** Bump when seed/privacy shape changes so old local demos don't leak prior labels. */
+export const STORAGE_KEY = 'hk-fintech-jobpack-v1-redacted';
 
 /** Pipeline gates shown in UI (fintech.md) */
 export const PIPELINE_GATES = [

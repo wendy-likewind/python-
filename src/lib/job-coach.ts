@@ -10,6 +10,7 @@ import type {
   TwoWheres,
 } from '@/types/job-coach';
 import { STORAGE_KEY } from '@/types/job-coach';
+import { PLACEHOLDER_INTERVIEWER } from '@/lib/job-coach-privacy';
 
 export const DEFAULT_MARKETS: MarketLocation[] = ['HK', 'SG', 'SZ'];
 
@@ -62,7 +63,7 @@ export function emptyPrep(): InterviewPrep {
     useTheirProduct: '',
     reverseQuestions: '',
     opener: '',
-    interviewerName: '',
+    interviewerName: PLACEHOLDER_INTERVIEWER,
     interviewerLens: 'unknown',
     interviewerBrief: '',
     fiveWhysAnswers: '',
@@ -85,20 +86,23 @@ export function emptyFire() {
   };
 }
 
-/** Illustrative seed — labeled in UI; not real openings. */
+/**
+ * Illustrative seed — synthetic only.
+ * Companies: 公司A/B/C. No real employers, interviewers, Notion URLs, or package numbers.
+ */
 export const ILLUSTRATIVE_OPPORTUNITIES: Opportunity[] = [
   {
     id: 'demo-hk-fx-pm',
-    title: 'FX / Payments Product Manager',
-    company: '示例虚拟银行 · 零售产品',
+    title: '跨境支付产品经理（示意）',
+    company: '公司A · 虚拟银行条线（示意）',
     location: 'HK',
     postedAt: '2026-10-10',
     salary: '薪资不明',
-    matchPoints: ['跨境支付/汇款相关经验可映射', '增长主线可对齐 volume/share', '香港市场'],
-    riskPoints: ['JD 要求深度牌照经验需核对', '英语面试强度未知'],
-    sourceUrl: 'https://example.com/jobs/illustrative-hk-fx-pm',
+    matchPoints: ['跨境支付/汇款经验可映射（示意）', '增长主线可对齐 volume/share', '香港市场'],
+    riskPoints: ['牌照深度要求需候选人自行核对', '面试语言强度未知'],
+    sourceUrl: 'https://example.com/jobs/illustrative-co-a',
     jdText:
-      '【示意 JD · 非真实岗位】Responsible for FX/remittance product growth in Hong Kong. Drive durable volume and share with compliance partnership. 3–5 years fintech/bank PM preferred.',
+      '【示意 JD · 非真实岗位 · 已脱敏】公司A 招聘跨境支付/汇款方向 PM。推动可持续交易量与份额，协同合规。要求 fintech/bank PM 经验（示意条件）。',
     score: {
       jdFit: '示意：must-have 与跨境交付可部分映射',
       levelFit: '示意：偏中高级 PM',
@@ -115,16 +119,16 @@ export const ILLUSTRATIVE_OPPORTUNITIES: Opportunity[] = [
   },
   {
     id: 'demo-hk-wealth-pm',
-    title: 'Wealth Digital Product Manager',
-    company: '示例持牌银行 · 财富科技',
+    title: '财富数字化产品经理（示意）',
+    company: '公司B · 持牌银行条线（示意）',
     location: 'HK',
     postedAt: '2026-10-12',
-    salary: '示意：HKD 公开带未核实',
-    matchPoints: ['理财模块搭建可作证据', '银行协作经验'],
-    riskPoints: ['主线若偏 FX 则对齐偏弱 → 倾向观望'],
-    sourceUrl: 'https://example.com/jobs/illustrative-hk-wealth',
+    salary: '薪资不明',
+    matchPoints: ['理财模块搭建可作证据（示意）', '银行协作经验（示意）'],
+    riskPoints: ['主线若偏支付则对齐偏弱 → 倾向观望'],
+    sourceUrl: 'https://example.com/jobs/illustrative-co-b',
     jdText:
-      '【示意 JD】Drive digital wealth journeys; partner with compliance and ops. Prefer bank PM background.',
+      '【示意 JD · 非真实岗位 · 已脱敏】公司B 推动数字财富旅程；协同合规与运营。偏好银行 PM 背景（示意）。',
     score: {
       jdFit: '示意：部分命中财富数字化',
       levelFit: '示意：级别待核对',
@@ -141,15 +145,16 @@ export const ILLUSTRATIVE_OPPORTUNITIES: Opportunity[] = [
   },
   {
     id: 'demo-sg-pm',
-    title: 'Product Manager, Cross-border',
-    company: '示例 Fintech · 区域产品',
+    title: '跨境产品经理（示意）',
+    company: '公司C · Fintech（示意）',
     location: 'SG',
     postedAt: '2026-10-14',
     salary: '薪资不明',
-    matchPoints: ['跨境叙事可复用', '三角市场扩展场景'],
+    matchPoints: ['跨境叙事可复用（示意）', '三角市场扩展场景'],
     riskPoints: ['筛岗技能默认 HK-only；扩展需用户确认'],
-    sourceUrl: 'https://example.com/jobs/illustrative-sg',
-    jdText: '【示意 JD】Cross-border payments product for SEA; Singapore-based.',
+    sourceUrl: 'https://example.com/jobs/illustrative-co-c',
+    jdText:
+      '【示意 JD · 非真实岗位 · 已脱敏】公司C · 新加坡基地 · 跨境支付产品（示意描述，无真实链接）。',
     score: {
       jdFit: '示意',
       levelFit: '示意',

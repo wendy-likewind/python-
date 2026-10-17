@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import { JobCoachProvider, useJobCoach } from '@/contexts/JobCoachContext';
 import { Badge } from '@/components/ui/badge';
 import { PIPELINE_GATES } from '@/types/job-coach';
+import { PRIVACY_BANNER } from '@/lib/job-coach-privacy';
 
 const navItems = [
   { to: '/job-coach/gate0', label: 'Gate0 投递前反思', icon: Compass },
@@ -92,6 +93,7 @@ function Shell() {
               </NavLink>
             ))}
           </nav>
+          <p className="text-[11px] text-[#2C3531]/40 leading-relaxed">{PRIVACY_BANNER}</p>
         </div>
       </header>
       <main className="max-w-5xl mx-auto px-4 md:px-6 py-8 md:py-10">

@@ -525,15 +525,17 @@ function AddJobDialog({
         </DialogHeader>
         <div className="space-y-3 py-2">
           <p className="text-xs text-[#2C3531]/40">
-            V1 不抓取 JobsDB/LinkedIn。粘贴公开 JD；无薪资带请填「薪资不明」，勿臆造。
+            V1 不抓取外网岗位。粘贴公开 JD；无薪资带填「薪资不明」。演示/分享请用
+            公司A 等占位，勿写入真实雇主名、薪酬包数字或 Notion 链接。
           </p>
           <Field label="岗位名称 *">
             <Input value={title} onChange={(e) => setTitle(e.target.value)} className="rounded-xl" />
           </Field>
-          <Field label="公司 *">
+          <Field label="公司 *（示意可用 公司A）">
             <Input
               value={company}
               onChange={(e) => setCompany(e.target.value)}
+              placeholder="公司A"
               className="rounded-xl"
             />
           </Field>
@@ -579,10 +581,11 @@ function AddJobDialog({
                 className="rounded-xl"
               />
             </Field>
-            <Field label="薪资（不明请写薪资不明）">
+            <Field label="薪资（默认薪资不明；勿填真实 package 数字到示意卡）">
               <Input
                 value={salary}
                 onChange={(e) => setSalary(e.target.value)}
+                placeholder="薪资不明"
                 className="rounded-xl"
               />
             </Field>

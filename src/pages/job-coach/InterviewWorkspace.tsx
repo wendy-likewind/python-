@@ -236,11 +236,11 @@ export default function InterviewWorkspace() {
                 面试官背景速研 + 镜头
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <Field label="面试官（姓名/公开页由你提供）">
+                <Field label="面试官（共享/示意请用 面试官X；真实姓名仅留本机）">
                   <Input
                     value={interview?.prep.interviewerName ?? ''}
                     onChange={(e) => updatePrep(job.id, { interviewerName: e.target.value })}
-                    placeholder="勿猜测私人履历"
+                    placeholder="面试官X（勿把真实姓名写进可分享草稿）"
                     className="rounded-xl bg-[#F7F9F6] border-none"
                   />
                 </Field>
@@ -569,7 +569,9 @@ function CaseLibrary({
   return (
     <div className="space-y-3">
       <p className="text-xs text-[#2C3531]/40 flex items-center gap-1">
-        <Lock className="w-3 h-3" /> 本地示意入库；正式环境应写入用户自命名 Notion DB
+        <Lock className="w-3 h-3" />{' '}
+        本地示意入库（公司A/面试官X/候选人）。正式案例库由用户自命名；勿粘贴真实
+        Notion URL、雇主名或薪酬包到共享视图。
       </p>
       {rows.map(({ iv, job }) => (
         <button
@@ -585,7 +587,8 @@ function CaseLibrary({
             <div className="space-y-1 min-w-0">
               <p className="font-medium truncate">{job!.title}</p>
               <p className="text-sm text-[#2C3531]/45 truncate">
-                {job!.company} · {MARKET_LABELS[job!.location]} ·{' '}
+                {job!.company}
+                {job!.isIllustrative ? '' : '（本机）'} · {MARKET_LABELS[job!.location]} ·{' '}
                 {CASE_STATUS_LABELS[job!.status]}
               </p>
             </div>
