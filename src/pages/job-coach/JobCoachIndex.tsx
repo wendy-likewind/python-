@@ -1,7 +1,7 @@
 import { Navigate } from 'react-router-dom';
 import { useJobCoach } from '@/contexts/JobCoachContext';
 
-/** Hub: send users to Gate0 until定位卡 exists, else board. */
+/** Hub: 定位 first if missing, else 机会. */
 export default function JobCoachIndex() {
   const { positioning, ready } = useJobCoach();
   if (!ready) return null;

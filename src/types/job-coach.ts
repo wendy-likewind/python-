@@ -1,14 +1,14 @@
 /**
- * 港 fintech 求职包 V1 — types aligned to career-advisor skill pack:
- * fintech · fintech-pm · interview-doc · interview-debrief · archive
+ * 港 fintech 求职包 V1 — types aligned to career-advisor skill pack.
+ * User-facing copy uses 第一步/第二步…; "GateN" stays in comments only.
  */
 
 export type MarketLocation = 'HK' | 'SG' | 'SZ';
 
-/** fintech-pm verdicts */
+/** Verdicts: 投 / 观望 / 不投 */
 export type JobDecision = 'pending' | 'apply' | 'watch' | 'reject';
 
-/** archive / progress statuses */
+/** Progress statuses from 面后复盘入库 */
 export type CaseStatus =
   | 'discovered' // 发现
   | 'applied' // 已投
@@ -23,7 +23,7 @@ export type CompanyType = 'bank' | 'virtual_bank' | 'fintech_other' | 'unknown';
 
 export type InterviewerLens = 'tl' | 'dh' | 'hr' | 'mixed' | 'unknown';
 
-/** Gate 0 · 5 Whys fixed axes from fintech.md */
+/** Step 1 · 5 Whys axes from methodology */
 export interface FiveWhys {
   industry: string;
   companyFamily: string;
@@ -32,37 +32,32 @@ export interface FiveWhys {
   whyNotMe: string;
 }
 
-/** Gate 0 · 2 Wheres — ~5y and longer arc */
 export interface TwoWheres {
   fiveYear: string;
   longerArc: string;
 }
 
 export interface PositioningCard {
-  /** WHAT — target level + domain */
   what: string;
   targetLevel: string;
   targetDomain: string;
-  /** WHY — why move now / employer family */
   why: string;
-  /** HOW — growth mainline + 2–3 proven deliveries */
   how: string;
   provenDeliveries: string[];
   elevatorPitch: string;
   fiveWhys: FiveWhys;
   twoWheres: TwoWheres;
-  /** Named growth mainline — resume + interviews lock to this */
   growthMainline: string;
-  /** One-line narrative for downstream read-only lock */
   narrative: string;
   lockedAt: string;
+  /** Illustrative persona label, e.g. Tina（示例） */
+  personaLabel?: string;
 }
 
-/** Gate1 scoring card (fintech-pm) */
 export interface OpportunityScore {
   jdFit: string;
   levelFit: string;
-  salaryNote: string; // band or 薪资不明
+  salaryNote: string;
   companyType: CompanyType;
   mainlineAlignment: string;
   verdictWhy: string;
@@ -74,7 +69,7 @@ export interface Opportunity {
   company: string;
   location: MarketLocation;
   postedAt: string;
-  salary: string; // shown band or 薪资不明
+  salary: string;
   matchPoints: string[];
   riskPoints: string[];
   sourceUrl: string;
@@ -87,9 +82,8 @@ export interface Opportunity {
   updatedAt: string;
 }
 
-/** METHOD block — 你会怎么做事 (interview-doc / fintech) */
 export interface MethodBlock {
-  problem: string; // 问题 K/W
+  problem: string;
   goals: string;
   strategy: string;
   execution: string;
@@ -111,7 +105,6 @@ export interface StarStory {
 export interface InterviewPrep {
   method: MethodBlock;
   starStories: StarStory[];
-  /** 用对方产品 → pain → prioritized fix */
   useTheirProduct: string;
   reverseQuestions: string;
   opener: string;
@@ -141,6 +134,10 @@ export interface FireReview {
 export interface InterviewCase {
   id: string;
   opportunityId: string;
+  /** 1 = 一轮, 2 = 二轮, … */
+  roundIndex: number;
+  /** User-facing, e.g. 一轮 · 团队负责人面 */
+  roundLabel: string;
   prep: InterviewPrep;
   fire: FireReview;
   status: CaseStatus;
@@ -179,38 +176,37 @@ export const DECISION_LABELS: Record<JobDecision, string> = {
 };
 
 export const COMPANY_TYPE_LABELS: Record<CompanyType, string> = {
-  bank: '银行',
+  bank: '外资银行',
   virtual_bank: '虚拟银行',
   fintech_other: '其他 fintech',
   unknown: '未标注',
 };
 
 export const LENS_LABELS: Record<InterviewerLens, string> = {
-  tl: 'Team Leader',
-  dh: '主管 / Department Head',
+  tl: '团队负责人',
+  dh: '部门负责人',
   hr: 'HR',
   mixed: '混合面板',
   unknown: '未定',
 };
 
 export const FIVE_WHYS_LABELS: Record<keyof FiveWhys, string> = {
-  industry: 'Industry · 为什么这个行业',
-  companyFamily: 'Company family · 为什么这类雇主',
-  location: 'Location · 为什么这个市场',
-  whyMe: 'Why me · 为什么是我',
-  whyNotMe: 'Why not me · 缺口与已缓解',
+  industry: '为什么这个行业',
+  companyFamily: '为什么这类雇主',
+  location: '为什么这个市场',
+  whyMe: '为什么是我',
+  whyNotMe: '缺口与已缓解',
 };
 
-/** Bump when seed/privacy shape changes so old local demos don't leak prior labels. */
-export const STORAGE_KEY = 'hk-fintech-jobpack-v1-redacted';
+export const STORAGE_KEY = 'hk-fintech-jobpack-v1-tina';
 
-/** Pipeline gates shown in UI (fintech.md) */
-export const PIPELINE_GATES = [
-  { id: 0, name: '投递前反思', v1: 'live' as const },
-  { id: 1, name: '筛岗', v1: 'live' as const },
-  { id: 2, name: '增长主线简历', v1: 'next' as const },
-  { id: 3, name: '面试文档', v1: 'live' as const },
-  { id: 4, name: '面试复盘', v1: 'live' as const },
-  { id: 5, name: '面后入库', v1: 'live' as const },
-  { id: 6, name: '谈薪', v1: 'next' as const },
+/** User-facing pipeline steps (methodology G0–G6 → 第一步…第七步) */
+export const PIPELINE_STEPS = [
+  { id: 0, step: '第一步', name: '定位', v1: 'live' as const },
+  { id: 1, step: '第二步', name: '机会', v1: 'live' as const },
+  { id: 2, step: '第三步', name: '简历主线', v1: 'next' as const },
+  { id: 3, step: '第四步', name: '准备面试', v1: 'live' as const },
+  { id: 4, step: '第五步', name: '面后复盘', v1: 'live' as const },
+  { id: 5, step: '第六步', name: '我的案例', v1: 'live' as const },
+  { id: 6, step: '第七步', name: '谈薪', v1: 'next' as const },
 ] as const;

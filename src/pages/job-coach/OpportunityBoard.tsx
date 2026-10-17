@@ -9,7 +9,6 @@ import {
   X,
   Send,
   AlertTriangle,
-  ShieldAlert,
   FileText,
   Banknote,
 } from 'lucide-react';
@@ -35,7 +34,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { shortlistCount, SHORTLIST_MAX, SHORTLIST_MIN } from '@/lib/job-coach';
+import { shortlistCount, SHORTLIST_MAX, SHORTLIST_MIN, TINA_TARGET_COMP } from '@/lib/job-coach';
 import {
   CASE_STATUS_LABELS,
   COMPANY_TYPE_LABELS,
@@ -54,14 +53,14 @@ const ALL_MARKETS: MarketLocation[] = ['HK', 'SG', 'SZ'];
 export default function OpportunityBoard() {
   const {
     positioning,
-    gate0Passed,
+    step1Done,
     opportunities,
     setDecision,
     addOpportunity,
     ensureInterview,
   } = useJobCoach();
 
-  const [markets, setMarkets] = useState<MarketLocation[]>([...ALL_MARKETS]);
+  const [markets, setMarkets] = useState<MarketLocation[]>(['HK']);
   const [decisionFilter, setDecisionFilter] = useState<'all' | JobDecision>('all');
   const [dialogOpen, setDialogOpen] = useState(false);
 
@@ -90,14 +89,15 @@ export default function OpportunityBoard() {
     <div className="space-y-8 animate-fade-in">
       <div className="space-y-3">
         <p className="text-xs font-medium tracking-widest uppercase text-[#A8C6A1]">
-          Gate1 · 香港 fintech-PM 筛岗
+          第二步 · 机会
         </p>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div className="space-y-2">
             <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">机会短名单</h1>
             <p className="text-base text-[#2C3531]/55 max-w-xl leading-relaxed">
-              评分卡后裁决 投 / 观望 / 不投。Gate0 未过不可投。V1 人工粘贴 JD，不自动抓取、不代投。
+              看岗位、写匹配点，再决定投 / 观望 / 不投。完成定位后才能标「投」。这一版请自己粘贴职位描述，不会自动抓岗。
             </p>
+            <p className="text-sm text-[#2C3531]/45">{TINA_TARGET_COMP}</p>
           </div>
           <AddJobDialog
             open={dialogOpen}
@@ -114,45 +114,38 @@ export default function OpportunityBoard() {
         <PositioningCardView card={positioning} compact />
       ) : (
         <div className="rounded-2xl border border-dashed border-amber-300 bg-amber-50 px-4 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div className="flex items-start gap-2">
-            <ShieldAlert className="w-4 h-4 text-amber-600 mt-0.5 shrink-0" />
-            <p className="text-sm text-amber-800">
-              Gate0 硬门禁未过：不可标「投」，仅可浏览/观望。请先完成投递前反思。
-            </p>
-          </div>
+          <p className="text-sm text-amber-800">还没完成定位：现在不能标「投」，只能先看看或观望。</p>
           <Button
             asChild
             size="sm"
             className="rounded-full bg-[#5B8FA8] hover:bg-[#5B8FA8]/90 text-white shrink-0"
           >
-            <Link to="/job-coach/gate0">去 Gate0</Link>
+            <Link to="/job-coach/gate0">去写定位</Link>
           </Button>
         </div>
       )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <LockedGateCard
+        <LockedNext
           icon={FileText}
-          title="Gate2 · 增长主线简历"
-          body="V1 锁定为下一步。投递包离开前需主线优先 + 绝对指标；此处仅提示。"
+          title="第三步 · 简历主线（下一步）"
+          body="这一版先不做。投递前记得简历要围着增长主线写。"
         />
-        <LockedGateCard
+        <LockedNext
           icon={Banknote}
-          title="Gate6 · 谈薪 / 薪资对照"
-          body="港新深公开薪资对照默认 HK-only；三角（港+新+深）需显式打开。V1 不建谈判流。"
+          title="第七步 · 谈薪（下一步）"
+          body="公开薪资对照默认先看香港；要对比新加坡/深圳需你自己打开。这一版不做谈判流。"
         />
       </div>
 
       <div className="rounded-2xl bg-white border border-[#A8C6A1]/15 px-4 py-3 space-y-2">
-        <p className="text-xs font-medium tracking-wide uppercase text-[#A8C6A1]">
-          投递前 checklist（短名单交付时）
-        </p>
+        <p className="text-xs font-medium tracking-wide text-[#A8C6A1]">投之前快速核对</p>
         <ul className="text-sm text-[#2C3531]/60 space-y-1">
-          <li>· 定位卡仍有效？{gate0Passed ? '是' : '否 — 硬停'}</li>
-          <li>· 该岗是否需要先跑 Gate2 增长主线简历？（V1：下一步）</li>
-          <li>· 公开薪资带是否已对照期望？（不明则标「薪资不明」）</li>
+          <li>· 定位还有效吗？{step1Done ? '是' : '还没有'}</li>
+          <li>· 这份岗位要不要先改一版主线简历？（这一版：下一步）</li>
+          <li>· 公开薪资带对过了吗？（没有就写「薪资不明」）</li>
           <li>
-            · 进度记「已投」由你回填 — 助手不自动投递 · 当前投 {applyCount} / 短名单{' '}
+            · 状态请自己改成「已投」——我们不会替你投 · 当前投 {applyCount} / 列表{' '}
             {shortlisted}
           </li>
         </ul>
@@ -183,10 +176,10 @@ export default function OpportunityBoard() {
             onValueChange={(v) => setDecisionFilter(v as 'all' | JobDecision)}
           >
             <SelectTrigger className="w-[130px] rounded-full bg-white border-[#A8C6A1]/20">
-              <SelectValue placeholder="裁决" />
+              <SelectValue placeholder="决定" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">全部裁决</SelectItem>
+              <SelectItem value="all">全部决定</SelectItem>
               <SelectItem value="pending">待定</SelectItem>
               <SelectItem value="apply">投</SelectItem>
               <SelectItem value="watch">观望</SelectItem>
@@ -201,8 +194,8 @@ export default function OpportunityBoard() {
                 : 'bg-amber-50 text-amber-700',
             )}
           >
-            短名单 {shortlisted}/{SHORTLIST_MAX}
-            {shortlisted < SHORTLIST_MIN ? ` · 建议 ≥${SHORTLIST_MIN}` : ''}
+            已关注 {shortlisted}/{SHORTLIST_MAX}
+            {shortlisted < SHORTLIST_MIN ? ` · 建议至少 ${SHORTLIST_MIN} 个` : ''}
           </span>
         </div>
       </div>
@@ -212,7 +205,7 @@ export default function OpportunityBoard() {
           <JobCard
             key={job.id}
             job={job}
-            gate0Passed={gate0Passed}
+            step1Done={step1Done}
             growthMainline={positioning?.growthMainline}
             onDecision={(d) => setDecision(job.id, d)}
             onOpenInterview={() => ensureInterview(job.id)}
@@ -220,7 +213,7 @@ export default function OpportunityBoard() {
         ))}
         {filtered.length === 0 && (
           <div className="rounded-3xl bg-white/60 border border-[#A8C6A1]/15 px-6 py-12 text-center text-sm text-[#2C3531]/45">
-            当前筛选下暂无岗位。可粘贴 JD 新增，或放宽地点/裁决过滤。
+            当前筛选下没有岗位。可以粘贴职位描述新增，或放宽地点/决定过滤。
           </div>
         )}
       </div>
@@ -228,7 +221,7 @@ export default function OpportunityBoard() {
   );
 }
 
-function LockedGateCard({
+function LockedNext({
   icon: Icon,
   title,
   body,
@@ -241,7 +234,7 @@ function LockedGateCard({
     <div className="rounded-2xl border border-dashed border-[#2C3531]/15 bg-white/50 px-4 py-3 space-y-1">
       <div className="flex items-center gap-2 text-[#2C3531]/40">
         <Icon className="w-3.5 h-3.5" />
-        <p className="text-xs font-medium">{title} · 下一步</p>
+        <p className="text-xs font-medium">{title}</p>
       </div>
       <p className="text-xs text-[#2C3531]/45 leading-relaxed">{body}</p>
     </div>
@@ -250,13 +243,13 @@ function LockedGateCard({
 
 function JobCard({
   job,
-  gate0Passed,
+  step1Done,
   growthMainline,
   onDecision,
   onOpenInterview,
 }: {
   job: Opportunity;
-  gate0Passed: boolean;
+  step1Done: boolean;
   growthMainline?: string;
   onDecision: (d: JobDecision) => void;
   onOpenInterview: () => void;
@@ -269,7 +262,7 @@ function JobCard({
             <h2 className="text-lg font-semibold tracking-tight">{job.title}</h2>
             {job.isIllustrative && (
               <Badge className="bg-amber-50 text-amber-700 border-none font-normal text-[11px]">
-                示意数据
+                示例
               </Badge>
             )}
             <Badge className="bg-[#5B8FA8]/10 text-[#5B8FA8] border-none font-normal">
@@ -294,14 +287,14 @@ function JobCard({
               ['reject', X, '不投'],
             ] as const
           ).map(([key, Icon, label]) => {
-            const blocked = key === 'apply' && !gate0Passed;
+            const blocked = key === 'apply' && !step1Done;
             return (
               <Button
                 key={key}
                 size="sm"
                 variant={job.decision === key ? 'default' : 'outline'}
                 disabled={blocked}
-                title={blocked ? 'Gate0 未过，不可投' : undefined}
+                title={blocked ? '请先完成定位' : undefined}
                 onClick={() => onDecision(key)}
                 className={cn(
                   'rounded-full gap-1',
@@ -323,19 +316,15 @@ function JobCard({
       </div>
 
       <div className="rounded-2xl bg-[#F7F9F6] px-4 py-3 grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
-        <ScoreLine label="JD fit" value={job.score.jdFit} />
-        <ScoreLine label="Level fit" value={job.score.levelFit} />
+        <ScoreLine label="岗位匹配" value={job.score.jdFit} />
+        <ScoreLine label="级别匹配" value={job.score.levelFit} />
         <ScoreLine label="薪资" value={job.score.salaryNote} />
-        <ScoreLine label="主线对齐" value={job.score.mainlineAlignment} />
+        <ScoreLine label="主线是否对得上" value={job.score.mainlineAlignment} />
         {job.decision === 'apply' && growthMainline && (
-          <p className="md:col-span-2 text-xs text-[#A8C6A1]">
-            投递理由对齐 HOW/主线：{growthMainline}
-          </p>
+          <p className="md:col-span-2 text-xs text-[#A8C6A1]">投递理由对齐主线：{growthMainline}</p>
         )}
         {job.score.verdictWhy && (
-          <p className="md:col-span-2 text-xs text-[#2C3531]/45">
-            裁决说明：{job.score.verdictWhy}
-          </p>
+          <p className="md:col-span-2 text-xs text-[#2C3531]/45">说明：{job.score.verdictWhy}</p>
         )}
       </div>
 
@@ -357,9 +346,7 @@ function JobCard({
         >
           原文链接 <ExternalLink className="w-3.5 h-3.5" />
         </a>
-        <span className="text-xs text-[#2C3531]/35">
-          裁决：{DECISION_LABELS[job.decision]}
-        </span>
+        <span className="text-xs text-[#2C3531]/35">决定：{DECISION_LABELS[job.decision]}</span>
         <div className="flex-1" />
         {(job.decision === 'apply' ||
           job.status === 'round1' ||
@@ -373,7 +360,7 @@ function JobCard({
             className="rounded-full bg-[#5B8FA8] hover:bg-[#5B8FA8]/90 text-white gap-1.5"
           >
             <Link to={`/job-coach/interview/${job.id}`}>
-              <Mic2 className="w-3.5 h-3.5" /> 面试工作台
+              <Mic2 className="w-3.5 h-3.5" /> 准备面试
             </Link>
           </Button>
         )}
@@ -404,7 +391,7 @@ function PointList({
     <div className="space-y-2">
       <p
         className={cn(
-          'text-xs font-medium tracking-wide uppercase flex items-center gap-1',
+          'text-xs font-medium tracking-wide flex items-center gap-1',
           tone === 'match' ? 'text-[#A8C6A1]' : 'text-amber-600',
         )}
       >
@@ -462,7 +449,7 @@ function AddJobDialog({
   const [jdFit, setJdFit] = useState('');
   const [levelFit, setLevelFit] = useState('');
   const [mainlineAlignment, setMainlineAlignment] = useState('');
-  const [companyType, setCompanyType] = useState<CompanyType>('unknown');
+  const [companyType, setCompanyType] = useState<CompanyType>('bank');
   const [verdictWhy, setVerdictWhy] = useState('');
 
   const reset = () => {
@@ -478,7 +465,7 @@ function AddJobDialog({
     setJdFit('');
     setLevelFit('');
     setMainlineAlignment('');
-    setCompanyType('unknown');
+    setCompanyType('bank');
     setVerdictWhy('');
   };
 
@@ -501,11 +488,11 @@ function AddJobDialog({
       sourceUrl: sourceUrl.trim() || 'https://example.com/manual-jd',
       jdText: jdText.trim(),
       score: {
-        jdFit: jdFit.trim() || '待评',
-        levelFit: levelFit.trim() || '待评',
+        jdFit: jdFit.trim() || '待写',
+        levelFit: levelFit.trim() || '待写',
         salaryNote: salary.trim() || '薪资不明',
         companyType,
-        mainlineAlignment: mainlineAlignment.trim() || '待对照定位卡主线',
+        mainlineAlignment: mainlineAlignment.trim() || '待对照定位主线',
         verdictWhy: verdictWhy.trim(),
       },
     });
@@ -516,26 +503,25 @@ function AddJobDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogTrigger asChild>
         <Button className="rounded-full bg-[#A8C6A1] hover:bg-[#A8C6A1]/90 text-white gap-1.5 px-5">
-          <Plus className="w-4 h-4" /> 粘贴 JD 新增
+          <Plus className="w-4 h-4" /> 粘贴职位描述
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl">
         <DialogHeader>
-          <DialogTitle>手动添加机会（Gate1）</DialogTitle>
+          <DialogTitle>添加一个机会</DialogTitle>
         </DialogHeader>
         <div className="space-y-3 py-2">
           <p className="text-xs text-[#2C3531]/40">
-            V1 不抓取外网岗位。粘贴公开 JD；无薪资带填「薪资不明」。演示/分享请用
-            公司A 等占位，勿写入真实雇主名、薪酬包数字或 Notion 链接。
+            粘贴公开职位描述。演示请用「目标外资银行A」等占位，勿写入真实雇主品牌或私密薪酬包。
           </p>
           <Field label="岗位名称 *">
             <Input value={title} onChange={(e) => setTitle(e.target.value)} className="rounded-xl" />
           </Field>
-          <Field label="公司 *（示意可用 公司A）">
+          <Field label="公司 *（示例可用 目标外资银行A）">
             <Input
               value={company}
               onChange={(e) => setCompany(e.target.value)}
-              placeholder="公司A"
+              placeholder="目标外资银行A"
               className="rounded-xl"
             />
           </Field>
@@ -555,10 +541,7 @@ function AddJobDialog({
               </Select>
             </Field>
             <Field label="公司类型">
-              <Select
-                value={companyType}
-                onValueChange={(v) => setCompanyType(v as CompanyType)}
-              >
+              <Select value={companyType} onValueChange={(v) => setCompanyType(v as CompanyType)}>
                 <SelectTrigger className="rounded-xl">
                   <SelectValue />
                 </SelectTrigger>
@@ -581,33 +564,32 @@ function AddJobDialog({
                 className="rounded-xl"
               />
             </Field>
-            <Field label="薪资（默认薪资不明；勿填真实 package 数字到示意卡）">
+            <Field label="薪资（默认薪资不明）">
               <Input
                 value={salary}
                 onChange={(e) => setSalary(e.target.value)}
-                placeholder="薪资不明"
                 className="rounded-xl"
               />
             </Field>
           </div>
-          <Field label="JD fit">
+          <Field label="岗位匹配">
             <Input value={jdFit} onChange={(e) => setJdFit(e.target.value)} className="rounded-xl" />
           </Field>
-          <Field label="Level fit">
+          <Field label="级别匹配">
             <Input
               value={levelFit}
               onChange={(e) => setLevelFit(e.target.value)}
               className="rounded-xl"
             />
           </Field>
-          <Field label="增长主线对齐">
+          <Field label="主线是否对得上">
             <Input
               value={mainlineAlignment}
               onChange={(e) => setMainlineAlignment(e.target.value)}
               className="rounded-xl"
             />
           </Field>
-          <Field label="裁决说明（一句话）">
+          <Field label="一句话说明">
             <Input
               value={verdictWhy}
               onChange={(e) => setVerdictWhy(e.target.value)}
@@ -636,7 +618,7 @@ function AddJobDialog({
               className="rounded-xl"
             />
           </Field>
-          <Field label="JD 原文 *">
+          <Field label="职位描述 *">
             <Textarea
               value={jdText}
               onChange={(e) => setJdText(e.target.value)}
@@ -651,7 +633,7 @@ function AddJobDialog({
             disabled={!title.trim() || !company.trim() || !jdText.trim()}
             className="rounded-full bg-[#A8C6A1] hover:bg-[#A8C6A1]/90 text-white"
           >
-            加入看板（发现）
+            加入列表
           </Button>
         </DialogFooter>
       </DialogContent>

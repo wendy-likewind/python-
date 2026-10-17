@@ -1,6 +1,6 @@
 import { useMemo, useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowLeft, Check, ShieldAlert } from 'lucide-react';
+import { ArrowRight, ArrowLeft, Check } from 'lucide-react';
 import { useJobCoach } from '@/contexts/JobCoachContext';
 import PositioningCardView from '@/components/job-coach/PositioningCardView';
 import { Button } from '@/components/ui/button';
@@ -13,58 +13,28 @@ import {
   emptyFiveWhys,
   emptyTwoWheres,
   estimatePitchSeconds,
+  TINA_CURRENT_COMP,
+  TINA_TARGET_COMP,
 } from '@/lib/job-coach';
 import { FIVE_WHYS_LABELS, type FiveWhys } from '@/types/job-coach';
 import { cn } from '@/lib/utils';
 
 const STEPS = [
-  {
-    id: 'what',
-    title: '1 · WHAT',
-    hint: '目标职级 + 赛道/领域（示意赛道即可；勿把真实雇主名写进可分享卡）',
-  },
-  {
-    id: 'why',
-    title: '2 · WHY',
-    hint: '为什么现在动；为什么这类雇主家庭（一句正向动机）',
-  },
-  {
-    id: 'how',
-    title: '3 · HOW',
-    hint: '为什么是我：1 条增长主线 + 2–3 个已验证交付',
-  },
-  {
-    id: 'pitch',
-    title: '4 · 电梯演讲',
-    hint: '≤60s：who / what shipped / why care now',
-  },
-  {
-    id: 'whys',
-    title: '5 · 5 Whys',
-    hint: 'Industry · Company family · Location · Why me · Why not me（缺口已缓解）',
-  },
-  {
-    id: 'wheres',
-    title: '6 · 2 Wheres',
-    hint: '~5 年与更长弧，需与目标角色一致',
-  },
-  {
-    id: 'mainline',
-    title: '7 · 增长主线命名',
-    hint: '例：“durable FX/remittance volume & share”；简历与面试锁此主线',
-  },
-  {
-    id: 'lock',
-    title: '锁定定位卡',
-    hint: '任一项缺失或自相矛盾则硬停 — 不可输出投短名单',
-  },
+  { id: 'what', title: '我想做什么', hint: '目标职级和赛道，例如：电子银行外汇产品经理' },
+  { id: 'why', title: '为什么现在', hint: '为什么换工作、为什么这类公司' },
+  { id: 'how', title: '凭什么是我', hint: '一条增长主线 + 两到三条已验证的交付' },
+  { id: 'pitch', title: '一分钟介绍', hint: '大约 60 秒讲清：我是谁、做成过什么、为什么现在合适' },
+  { id: 'whys', title: '五个为什么', hint: '行业、雇主类型、城市、为什么是我、缺口如何补' },
+  { id: 'wheres', title: '两个去向', hint: '大约五年，以及更长远一点的方向' },
+  { id: 'mainline', title: '增长主线', hint: '用一句话命名，后面简历和面试都围着它讲' },
+  { id: 'lock', title: '保存定位', hint: '保存后，选机会、准备面试都会沿用这份定位' },
 ] as const;
 
 export default function Gate0Wizard() {
   const { positioning, lockPositioning, resetPositioning } = useJobCoach();
   const [step, setStep] = useState(0);
-  const [targetLevel, setTargetLevel] = useState('高级产品经理（示意）');
-  const [targetDomain, setTargetDomain] = useState('港 fintech · 跨境支付（示意赛道）');
+  const [targetLevel, setTargetLevel] = useState('电子银行 · 外汇产品经理');
+  const [targetDomain, setTargetDomain] = useState('香港外资银行 · 外汇/跨境支付');
   const [what, setWhat] = useState('');
   const [why, setWhy] = useState('');
   const [how, setHow] = useState('');
@@ -73,6 +43,7 @@ export default function Gate0Wizard() {
   const [fiveWhys, setFiveWhys] = useState<FiveWhys>(emptyFiveWhys());
   const [twoWheres, setTwoWheres] = useState(emptyTwoWheres());
   const [growthMainline, setGrowthMainline] = useState('');
+  const [personaLabel, setPersonaLabel] = useState('Tina（示例）· 32 岁');
 
   const pitchSeconds = estimatePitchSeconds(elevatorPitch);
   const progress = ((step + 1) / STEPS.length) * 100;
@@ -84,10 +55,7 @@ export default function Gate0Wizard() {
       case 'why':
         return why.trim().length > 4;
       case 'how':
-        return (
-          how.trim().length > 4 &&
-          provenDeliveries.filter((d) => d.trim()).length >= 2
-        );
+        return how.trim().length > 4 && provenDeliveries.filter((d) => d.trim()).length >= 2;
       case 'pitch':
         return (
           elevatorPitch.trim().length > 10 && elevatorPitch.length <= ELEVATOR_PITCH_MAX_CHARS
@@ -138,6 +106,7 @@ export default function Gate0Wizard() {
         longerArc: twoWheres.longerArc.trim(),
       },
       growthMainline: growthMainline.trim(),
+      personaLabel: personaLabel.trim() || undefined,
     });
   };
 
@@ -145,10 +114,14 @@ export default function Gate0Wizard() {
     return (
       <div className="space-y-8 animate-fade-in">
         <PageIntro
-          eyebrow="Gate0 · 投递前反思 · 已通过"
-          title="定位卡已硬锁定"
-          desc="筛岗标「投」、面试文档开场与增长主线简历都必须只读沿用此卡。意图/薪资/关键词变化时需重新完成 Gate0。"
+          eyebrow="第一步 · 定位"
+          title="定位已保存"
+          desc="后面选机会、准备面试时都会按这份定位来。薪资意向变化时，建议回来改一版。"
         />
+        <div className="rounded-2xl bg-white border border-[#A8C6A1]/15 px-4 py-3 text-sm text-[#2C3531]/60 space-y-1">
+          <p>{TINA_CURRENT_COMP}</p>
+          <p>{TINA_TARGET_COMP}</p>
+        </div>
         <PositioningCardView
           card={positioning}
           onUnlock={() => {
@@ -156,16 +129,16 @@ export default function Gate0Wizard() {
             setStep(0);
           }}
         />
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-3 items-center">
           <Button
             asChild
             className="bg-[#A8C6A1] hover:bg-[#A8C6A1]/90 text-white rounded-full px-6 gap-2"
           >
             <Link to="/job-coach/board">
-              进入 Gate1 筛岗 <ArrowRight className="w-4 h-4" />
+              下一步：看机会 <ArrowRight className="w-4 h-4" />
             </Link>
           </Button>
-          <LockedNextHint />
+          <p className="text-xs text-[#2C3531]/40">简历主线改写、谈薪：这一版先不做</p>
         </div>
       </div>
     );
@@ -174,22 +147,19 @@ export default function Gate0Wizard() {
   return (
     <div className="space-y-8 animate-fade-in">
       <PageIntro
-        eyebrow="Gate0 · 投递前反思（硬门禁）"
-        title="先写完反思表，再谈短名单"
-        desc="来自「港fintech求职工作方法论」：WHAT / WHY / HOW、电梯演讲、5 Whys + 2 Wheres、增长主线命名。缺一或自相矛盾则硬停，不输出投短名单。"
+        eyebrow="第一步 · 定位"
+        title="先想清楚自己要什么"
+        desc="写清目标、动机、方法和一分钟介绍。没写完之前，机会列表里不能标「投」。"
       />
 
-      <div className="flex items-start gap-2 rounded-2xl bg-amber-50 border border-amber-100 px-4 py-3">
-        <ShieldAlert className="w-4 h-4 text-amber-600 mt-0.5 shrink-0" />
-        <p className="text-sm text-amber-800 leading-relaxed">
-          硬门禁：定位卡未锁定前，看板最多「观望」，不可标「投」。不代投、不代私信。
-        </p>
+      <div className="rounded-2xl bg-[#5B8FA8]/5 border border-[#5B8FA8]/15 px-4 py-3 text-sm text-[#5B8FA8]">
+        完成定位前，机会最多只能「观望」。我们不会代你投递或私信。
       </div>
 
       <div className="space-y-3">
         <div className="flex items-center justify-between text-xs text-[#2C3531]/45">
           <span>
-            步骤 {step + 1} / {STEPS.length} · {STEPS[step].title}
+            {step + 1} / {STEPS.length} · {STEPS[step].title}
           </span>
           <span>{Math.round(progress)}%</span>
         </div>
@@ -204,6 +174,13 @@ export default function Gate0Wizard() {
 
         {STEPS[step].id === 'what' && (
           <div className="space-y-4">
+            <Field label="怎么称呼这份示例（可选）">
+              <Input
+                value={personaLabel}
+                onChange={(e) => setPersonaLabel(e.target.value)}
+                className="rounded-xl bg-[#F7F9F6] border-none"
+              />
+            </Field>
             <Field label="目标职级">
               <Input
                 value={targetLevel}
@@ -211,15 +188,15 @@ export default function Gate0Wizard() {
                 className="rounded-xl bg-[#F7F9F6] border-none"
               />
             </Field>
-            <Field label="目标领域 / 雇主家庭">
+            <Field label="目标赛道">
               <Input
                 value={targetDomain}
                 onChange={(e) => setTargetDomain(e.target.value)}
-                placeholder="例：港 fintech · 跨境支付 PM（示意赛道，勿填真实雇主名）"
+                placeholder="例如：香港外资银行 · 外汇（勿填真实雇主品牌）"
                 className="rounded-xl bg-[#F7F9F6] border-none"
               />
             </Field>
-            <Field label="WHAT — 一句话目标">
+            <Field label="一句话目标">
               <Textarea
                 value={what}
                 onChange={(e) => setWhat(e.target.value)}
@@ -231,12 +208,11 @@ export default function Gate0Wizard() {
         )}
 
         {STEPS[step].id === 'why' && (
-          <Field label="WHY — 为什么现在 / 为什么这类雇主">
+          <Field label="为什么现在换 / 为什么这类公司">
             <Textarea
               value={why}
               onChange={(e) => setWhy(e.target.value)}
               rows={5}
-              placeholder="一句正向动机即可，勿编造雇主内部信息"
               className="rounded-xl bg-[#F7F9F6] border-none resize-none"
             />
           </Field>
@@ -244,7 +220,7 @@ export default function Gate0Wizard() {
 
         {STEPS[step].id === 'how' && (
           <div className="space-y-4">
-            <Field label="HOW — 为什么是我（概述）">
+            <Field label="凭什么是我（概述）">
               <Textarea
                 value={how}
                 onChange={(e) => setHow(e.target.value)}
@@ -253,7 +229,7 @@ export default function Gate0Wizard() {
               />
             </Field>
             <div className="space-y-2">
-              <Label className="text-[#2C3531]/70">已验证交付（至少 2 条，最多 3）</Label>
+              <Label className="text-[#2C3531]/70">已验证的交付（至少 2 条）</Label>
               {provenDeliveries.map((d, i) => (
                 <Input
                   key={i}
@@ -273,14 +249,13 @@ export default function Gate0Wizard() {
 
         {STEPS[step].id === 'pitch' && (
           <div className="space-y-3">
-            <Field label={`电梯演讲（≤ ${ELEVATOR_PITCH_MAX_CHARS} 字 · 约 60 秒）`}>
+            <Field label={`一分钟介绍（约 ${ELEVATOR_PITCH_MAX_CHARS} 字内）`}>
               <Textarea
                 value={elevatorPitch}
                 onChange={(e) =>
                   setElevatorPitch(e.target.value.slice(0, ELEVATOR_PITCH_MAX_CHARS))
                 }
                 rows={6}
-                placeholder="who / what shipped / why care now"
                 className="rounded-xl bg-[#F7F9F6] border-none resize-none"
               />
             </Field>
@@ -290,8 +265,8 @@ export default function Gate0Wizard() {
                 pitchSeconds > 60 ? 'text-amber-600' : 'text-[#2C3531]/40',
               )}
             >
-              {elevatorPitch.length}/{ELEVATOR_PITCH_MAX_CHARS} 字 · 估时约 {pitchSeconds} 秒
-              {pitchSeconds > 60 ? '（建议再压缩）' : ''}
+              {elevatorPitch.length}/{ELEVATOR_PITCH_MAX_CHARS} 字 · 大约 {pitchSeconds} 秒
+              {pitchSeconds > 60 ? '（可以再短一点）' : ''}
             </p>
           </div>
         )}
@@ -313,7 +288,7 @@ export default function Gate0Wizard() {
 
         {STEPS[step].id === 'wheres' && (
           <div className="space-y-4">
-            <Field label="Where · 约 5 年">
+            <Field label="大约五年">
               <Textarea
                 value={twoWheres.fiveYear}
                 onChange={(e) => setTwoWheres({ ...twoWheres, fiveYear: e.target.value })}
@@ -321,7 +296,7 @@ export default function Gate0Wizard() {
                 className="rounded-xl bg-[#F7F9F6] border-none resize-none"
               />
             </Field>
-            <Field label="Where · 更长弧">
+            <Field label="更长远">
               <Textarea
                 value={twoWheres.longerArc}
                 onChange={(e) => setTwoWheres({ ...twoWheres, longerArc: e.target.value })}
@@ -333,11 +308,11 @@ export default function Gate0Wizard() {
         )}
 
         {STEPS[step].id === 'mainline' && (
-          <Field label="增长主线命名（简历 + 面试锁此句）">
+          <Field label="增长主线（一句话）">
             <Input
               value={growthMainline}
               onChange={(e) => setGrowthMainline(e.target.value)}
-              placeholder='例：durable FX/remittance volume & share'
+              placeholder="例如：电子银行外汇 · 可持续交易量与份额"
               className="rounded-xl bg-[#F7F9F6] border-none"
             />
           </Field>
@@ -346,14 +321,14 @@ export default function Gate0Wizard() {
         {STEPS[step].id === 'lock' && (
           <div className="rounded-2xl bg-[#F7F9F6] border border-[#A8C6A1]/20 p-5 space-y-3">
             <p className="text-sm text-[#2C3531]/70 leading-relaxed">
-              即将锁定：
+              即将保存：
               <span className="font-medium text-[#2C3531]">
                 {' '}
                 {targetLevel} · {targetDomain}｜主线：{growthMainline || '—'}
               </span>
             </p>
             <p className="text-xs text-[#2C3531]/40">
-              锁定后 Gate1 才允许「投」。Gate2 增长主线简历 / Gate6 谈薪在 V1 标为下一步。
+              保存后才可以在机会里标「投」。简历主线改写、谈薪这一版先不做。
             </p>
           </div>
         )}
@@ -375,7 +350,7 @@ export default function Gate0Wizard() {
               onClick={handleLock}
               className="bg-[#A8C6A1] hover:bg-[#A8C6A1]/90 text-white rounded-full px-6 gap-2"
             >
-              <Check className="w-4 h-4" /> 锁定定位卡
+              <Check className="w-4 h-4" /> 保存定位
             </Button>
           ) : (
             <Button
@@ -389,14 +364,6 @@ export default function Gate0Wizard() {
           )}
         </div>
       </div>
-    </div>
-  );
-}
-
-function LockedNextHint() {
-  return (
-    <div className="text-xs text-[#2C3531]/40 self-center px-2">
-      Gate2 增长主线简历 · Gate6 谈薪 → V1 锁定为下一步
     </div>
   );
 }
