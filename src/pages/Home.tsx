@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { WENDY_INFO, CHAT_KNOWLEDGE, NOTION_KNOWLEDGE } from '@/lib/constants';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { MessageCircle, Send, User, Bot, Briefcase, Zap, Heart, ExternalLink, ArrowRight, Mail, MessageSquare } from 'lucide-react';
+import { MessageCircle, Send, User, Bot, Briefcase, Zap, Heart, ExternalLink, ArrowRight, Mail, MessageSquare, Compass } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const Home = () => {
@@ -122,12 +123,23 @@ const Home = () => {
               {WENDY_INFO.intro}
             </p>
           </div>
-          <Button 
-            onClick={scrollToChat}
-            className="mt-4 bg-[#A8C6A1] hover:bg-[#A8C6A1]/90 text-white rounded-full px-8 py-6 gap-2 text-lg font-medium group shadow-lg shadow-[#A8C6A1]/20 transition-all hover:scale-105"
-          >
-            和我聊聊 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
+          <div className="mt-4 flex flex-col sm:flex-row items-center gap-3">
+            <Button 
+              onClick={scrollToChat}
+              className="bg-[#A8C6A1] hover:bg-[#A8C6A1]/90 text-white rounded-full px-8 py-6 gap-2 text-lg font-medium group shadow-lg shadow-[#A8C6A1]/20 transition-all hover:scale-105"
+            >
+              和我聊聊 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              className="rounded-full px-6 py-6 gap-2 text-base border-[#5B8FA8]/30 text-[#5B8FA8] hover:bg-[#5B8FA8]/5 hover:text-[#5B8FA8]"
+            >
+              <Link to="/job-coach">
+                <Compass className="w-4 h-4" /> 港 fintech 求职陪跑
+              </Link>
+            </Button>
+          </div>
         </section>
 
         {/* Info Blocks */}
