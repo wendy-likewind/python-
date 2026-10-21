@@ -37,10 +37,14 @@ jobs:
       - name: Build
         run: pnpm exec vite build
 
-      # GitHub Pages has no server rewrite for SPA routes (/job-coach etc.).
+      # GitHub Pages has no server rewrite for SPA routes (/job-coach, /workbench, etc.).
       # Serving the app shell as 404.html lets deep links load React Router.
+      # /workbench is also a static directory (today.json), so the same shell is
+      # copied to workbench/index.html. Asset URLs are absolute (/python-/...).
       - name: SPA fallback for GitHub Pages
-        run: cp dist/index.html dist/404.html
+        run: |
+          cp dist/index.html dist/404.html
+          cp dist/index.html dist/workbench/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

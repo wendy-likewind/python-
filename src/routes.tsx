@@ -1,4 +1,5 @@
 import Home from './pages/Home';
+import Workbench from './pages/Workbench';
 import JobCoachLayout from './components/job-coach/JobCoachLayout';
 import JobCoachIndex from './pages/job-coach/JobCoachIndex';
 import Gate0Wizard from './pages/job-coach/Gate0Wizard';
@@ -21,6 +22,18 @@ export const routes: RouteConfig[] = [
     name: 'Home',
     path: '/',
     element: <Home />,
+    public: true,
+  },
+  {
+    name: '今日工作台',
+    path: '/workbench',
+    element: <Workbench />,
+    public: true,
+  },
+  {
+    name: '今日工作台目录',
+    path: '/workbench/',
+    element: <Workbench />,
     public: true,
   },
   {

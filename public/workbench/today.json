@@ -1,0 +1,105 @@
+{
+  "date": "2026-10-21",
+  "timezone": "Asia/Shanghai",
+  "generated_at": "2026-10-21T08:00:00+08:00",
+  "todos": [
+    {
+      "title": "注销内地户口申请",
+      "time": "全天",
+      "status": "open"
+    },
+    {
+      "title": "钢管舞课",
+      "time": "20:30–21:30",
+      "status": "open"
+    },
+    {
+      "title": "确认 ZA 谈薪任务是否勾销",
+      "note": "待本人确认",
+      "status": "pending"
+    }
+  ],
+  "spend": {
+    "currency": "HKD",
+    "total_hkd": 653.3,
+    "week_total_hkd": 852.3,
+    "items": [
+      { "label": "物流", "amount_hkd": 518 },
+      { "label": "午饭", "amount_hkd": 60 },
+      { "label": "晚饭", "amount_hkd": 51 },
+      { "label": "交通", "amount_hkd": 15.1 },
+      { "label": "交通", "amount_hkd": 9.2 }
+    ]
+  },
+  "intel": [
+    {
+      "title": "美股隔夜",
+      "detail": "美东 10-20 收盘：道指领涨，纳指近乎持平。财报与 AI 信用叙事仍交错。"
+    },
+    {
+      "title": "港股 IPO",
+      "detail": "02384、03275 公开认购进行中（约至 10-23），拟 10-28 上市；06157 认购已结束，拟 10-23 上市。"
+    },
+    {
+      "title": "木渡川笔记",
+      "detail": "《Grok Bot 舰队》阅读笔记已归档。01 段仍标草稿，是否改完再同步待本人决定。"
+    },
+    {
+      "title": "虹安筛表",
+      "detail": "53 个 Grok Bot 模板筛表已入库，可按工作流价值回看。"
+    },
+    {
+      "title": "Longbridge 待决",
+      "detail": "账号仍未授权，晨报继续用公开源。获批后是否切回，待本人决定。"
+    }
+  ],
+  "week_goals": [
+    {
+      "title": "恢复周",
+      "detail": "健身房砍轻、钢管保留、半主食控糖"
+    },
+    {
+      "title": "固定节奏"
+    },
+    {
+      "title": "行政收口"
+    }
+  ],
+  "week_calendar": [
+    {
+      "date": "2026-10-19",
+      "weekday": "周一",
+      "chips": ["户口截止", "采购", "轻上肢", "JLaw 1"]
+    },
+    {
+      "date": "2026-10-20",
+      "weekday": "周二",
+      "chips": ["取消户口", "ZA 谈薪占位", "钢管 20:00"]
+    },
+    {
+      "date": "2026-10-21",
+      "weekday": "周三",
+      "chips": ["注销户口", "钢管 20:30"]
+    },
+    {
+      "date": "2026-10-22",
+      "weekday": "周四",
+      "chips": ["轻拉伸/骑车", "JLaw 2"]
+    },
+    {
+      "date": "2026-10-23",
+      "weekday": "周五",
+      "chips": ["早睡优先"]
+    },
+    {
+      "date": "2026-10-24",
+      "weekday": "周六",
+      "chips": ["钢管自主练（可选）"]
+    },
+    {
+      "date": "2026-10-25",
+      "weekday": "周日",
+      "chips": ["休息/轻备餐"]
+    }
+  ]
+}
