@@ -1,105 +1,136 @@
 {
-  "date": "2026-10-21",
+  "date": "2026-10-22",
   "timezone": "Asia/Shanghai",
-  "generated_at": "2026-10-21T08:00:00+08:00",
+  "generated_at": "2026-10-22T08:10:00+08:00",
+  "sources_note": "日程来自 Google Calendar（小白常用源）；情报来自 Notion「2026-10-22 知识晨报」。今日花费：自动化回合无法直连小金 ledger，未检索到 10-22 已记账条目，故 spend 为空，不编造金额。",
   "todos": [
     {
-      "title": "注销内地户口申请",
-      "time": "全天",
-      "status": "open"
+      "title": "轻松拉伸或轻骑车 20–25分",
+      "time": "07:00–07:25",
+      "note": "恢复周；勿冲刺/跳跃。晚餐计划：豆腐芥蓝快炒 + 半碗杂粮饭",
+      "status": "open",
+      "tag": "训练"
     },
     {
-      "title": "钢管舞课",
-      "time": "20:30–21:30",
-      "status": "open"
+      "title": "JLaw 交易课·第2节",
+      "time": "20:00–20:45",
+      "note": "每周两节之一（周四）",
+      "status": "open",
+      "tag": "学习"
     },
     {
       "title": "确认 ZA 谈薪任务是否勾销",
-      "note": "待本人确认",
-      "status": "pending"
+      "note": "沿用 10-21 待确认项；本早未收到小白/本人新回传，仍待你本人确认",
+      "status": "pending",
+      "tag": "待确认"
     }
   ],
   "spend": {
     "currency": "HKD",
-    "total_hkd": 653.3,
-    "week_total_hkd": 852.3,
-    "items": [
-      { "label": "物流", "amount_hkd": 518 },
-      { "label": "午饭", "amount_hkd": 60 },
-      { "label": "晚饭", "amount_hkd": 51 },
-      { "label": "交通", "amount_hkd": 15.1 },
-      { "label": "交通", "amount_hkd": 9.2 }
-    ]
+    "total_hkd": null,
+    "week_total_hkd": null,
+    "items": [],
+    "empty_reason": "小金 ledger 本早未取到 10-22 明细；不编造。已知本周此前（约 10/19–21）工作台曾记约 852.3 HKD，未在此复用为今日数字。"
   },
   "intel": [
     {
-      "title": "美股隔夜",
-      "detail": "美东 10-20 收盘：道指领涨，纳指近乎持平。财报与 AI 信用叙事仍交错。"
+      "title": "美股隔夜（美东 10-21）",
+      "detail": "Dow 52,856.09（+0.69%）· S&P +0.58% · Nasdaq +1.05%。SpaceX 季报后 AI/科技情绪回暖；Netflix 指引不及预期盘中跌超 5%。",
+      "tag": "市场",
+      "source": "https://app.notion.com/p/40062839976681d28706fb0f73efb4cc"
     },
     {
       "title": "港股 IPO",
-      "detail": "02384、03275 公开认购进行中（约至 10-23），拟 10-28 上市；06157 认购已结束，拟 10-23 上市。"
+      "detail": "东山精密 02384、微亿智造 03275 公开认购约至明天（10-23）正午、拟 10-28 上市；瘦西湖文旅 06157 已延迟全球发售及上市（原拟 10-23），申请股款退回。",
+      "tag": "市场",
+      "source": "https://app.notion.com/p/40062839976681d28706fb0f73efb4cc"
     },
     {
-      "title": "木渡川笔记",
-      "detail": "《Grok Bot 舰队》阅读笔记已归档。01 段仍标草稿，是否改完再同步待本人决定。"
+      "title": "昨夜知识入库",
+      "detail": "虹安 53 模板筛表 + 印占人生战略白皮书（湘潭盘）已归档；试装 Pattern of Pain / Product Idea Stress Test 须本人拍板新建 Bot。",
+      "tag": "知识",
+      "source": "https://app.notion.com/p/40062839976681d28706fb0f73efb4cc"
     },
     {
-      "title": "虹安筛表",
-      "detail": "53 个 Grok Bot 模板筛表已入库，可按工作流价值回看。"
-    },
-    {
-      "title": "Longbridge 待决",
-      "detail": "账号仍未授权，晨报继续用公开源。获批后是否切回，待本人决定。"
+      "title": "待决",
+      "detail": "是否新建 Pattern of Pain 或 Product Idea Stress Test；Longbridge 仍未授权，晨报继续公开源。",
+      "tag": "拍板",
+      "source": "https://app.notion.com/p/40062839976681d28706fb0f73efb4cc"
     }
   ],
   "week_goals": [
     {
-      "title": "恢复周",
-      "detail": "健身房砍轻、钢管保留、半主食控糖"
+      "title": "恢复周主线",
+      "detail": "健身房砍轻、钢管课保留；非钢管课默认早上 07:00；饮食半主食控糖；睡眠好转后再升强度"
     },
     {
-      "title": "固定节奏"
+      "title": "固定节奏",
+      "detail": "钢管（二 20:00 / 三 20:30）· 周四 07:00 拉伸或轻骑 · JLaw 两节 · 求职短名单跟进"
     },
     {
-      "title": "行政收口"
+      "title": "行政收口",
+      "detail": "注销内地户籍申请 + 约伯伯（日历镜像，完成态以本人确认为准）"
     }
   ],
   "week_calendar": [
     {
       "date": "2026-10-19",
       "weekday": "周一",
-      "chips": ["户口截止", "采购", "轻上肢", "JLaw 1"]
+      "chips": [
+        "户口截止",
+        "采购",
+        "轻上肢",
+        "JLaw 1"
+      ]
     },
     {
       "date": "2026-10-20",
       "weekday": "周二",
-      "chips": ["取消户口", "ZA 谈薪占位", "钢管 20:00"]
+      "chips": [
+        "取消户口",
+        "ZA 谈薪占位",
+        "钢管 20:00"
+      ]
     },
     {
       "date": "2026-10-21",
       "weekday": "周三",
-      "chips": ["注销户口", "钢管 20:30"]
+      "chips": [
+        "注销户口",
+        "钢管 20:30"
+      ]
     },
     {
       "date": "2026-10-22",
       "weekday": "周四",
-      "chips": ["轻拉伸/骑车", "JLaw 2"]
+      "chips": [
+        "07:00 拉伸/轻骑",
+        "20:00 JLaw 2"
+      ],
+      "today": true
     },
     {
       "date": "2026-10-23",
       "weekday": "周五",
-      "chips": ["早睡优先"]
+      "chips": [
+        "早睡优先",
+        "02384/03275 认购截止约正午",
+        "06157 已延迟"
+      ]
     },
     {
       "date": "2026-10-24",
       "weekday": "周六",
-      "chips": ["钢管自主练（可选）"]
+      "chips": [
+        "钢管自主练（可选）"
+      ]
     },
     {
       "date": "2026-10-25",
       "weekday": "周日",
-      "chips": ["休息/轻备餐"]
+      "chips": [
+        "休息/轻备餐"
+      ]
     }
   ]
 }
