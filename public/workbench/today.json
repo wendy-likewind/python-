@@ -1,22 +1,22 @@
 {
-  "date": "2026-10-22",
+  "date": "2026-10-23",
   "timezone": "Asia/Shanghai",
-  "generated_at": "2026-10-22T08:10:00+08:00",
-  "sources_note": "日程来自 Google Calendar（小白常用源）；情报来自 Notion「2026-10-22 知识晨报」。今日花费：自动化回合无法直连小金 ledger，未检索到 10-22 已记账条目，故 spend 为空，不编造金额。",
+  "generated_at": "2026-10-23T08:10:00+08:00",
+  "sources_note": "日程来自 Google Calendar（小白常用源）；情报来自 Notion「2026-10-23 知识晨报」。今日花费：自动化回合无法直连小金 ledger，未检索到 10-23 已记账条目，故 spend 为空，不编造金额。",
   "todos": [
     {
-      "title": "轻松拉伸或轻骑车 20–25分",
-      "time": "07:00–07:25",
-      "note": "恢复周；勿冲刺/跳跃。晚餐计划：豆腐芥蓝快炒 + 半碗杂粮饭",
+      "title": "02384 / 03275 公开认购截止（约正午）",
+      "time": "至 12:00",
+      "note": "东山精密、微亿智造；银行渠道多已提前截止；是否打、打多少待本人决定",
       "status": "open",
-      "tag": "训练"
+      "tag": "提醒"
     },
     {
-      "title": "JLaw 交易课·第2节",
-      "time": "20:00–20:45",
-      "note": "每周两节之一（周四）",
+      "title": "早睡优先",
+      "time": "19:00–19:30",
+      "note": "优先早睡恢复；可只做轻拉伸或直接休息。晚餐：金枪鱼沙拉碗（生菜+番茄+金枪鱼，可选牛油果）。补剂：复合B族+鱼油随早餐",
       "status": "open",
-      "tag": "学习"
+      "tag": "恢复"
     },
     {
       "title": "确认 ZA 谈薪任务是否勾销",
@@ -30,32 +30,32 @@
     "total_hkd": null,
     "week_total_hkd": null,
     "items": [],
-    "empty_reason": "小金 ledger 本早未取到 10-22 明细；不编造。已知本周此前（约 10/19–21）工作台曾记约 852.3 HKD，未在此复用为今日数字。"
+    "empty_reason": "小金 ledger 本早未取到 10-23 明细；不编造。本机/共享记忆无当日流水。"
   },
   "intel": [
     {
-      "title": "美股隔夜（美东 10-21）",
-      "detail": "Dow 52,856.09（+0.69%）· S&P +0.58% · Nasdaq +1.05%。SpaceX 季报后 AI/科技情绪回暖；Netflix 指引不及预期盘中跌超 5%。",
+      "title": "美股隔夜（美东 10-22）",
+      "detail": "Dow 52,867.98（+0.02%）· S&P 7,663.43（−1.21%）· Nasdaq 26,008.86（−2.60%）· VIX 19.03（+14%）。AI/科技抛售（纳指约 6 月来最差一日）；油价 Brent +4% 至约 $113；10Y 收益率大跌。",
       "tag": "市场",
-      "source": "https://app.notion.com/p/40062839976681d28706fb0f73efb4cc"
+      "source": "https://app.notion.com/p/402628399766810fb44bc7084dbba414"
     },
     {
-      "title": "港股 IPO",
-      "detail": "东山精密 02384、微亿智造 03275 公开认购约至明天（10-23）正午、拟 10-28 上市；瘦西湖文旅 06157 已延迟全球发售及上市（原拟 10-23），申请股款退回。",
+      "title": "港股 IPO · 今日截止",
+      "detail": "东山精密 02384、微亿智造 03275 公开认购至今日正午、拟 10-28 上市；瘦西湖文旅 06157 已延期，申请股款拟于今日退回。",
       "tag": "市场",
-      "source": "https://app.notion.com/p/40062839976681d28706fb0f73efb4cc"
+      "source": "https://app.notion.com/p/402628399766810fb44bc7084dbba414"
     },
     {
       "title": "昨夜知识入库",
-      "detail": "虹安 53 模板筛表 + 印占人生战略白皮书（湘潭盘）已归档；试装 Pattern of Pain / Product Idea Stress Test 须本人拍板新建 Bot。",
+      "detail": "10-22 无新增归档；虹安筛表与印占白皮书已在昨报覆盖。",
       "tag": "知识",
-      "source": "https://app.notion.com/p/40062839976681d28706fb0f73efb4cc"
+      "source": "https://app.notion.com/p/402628399766810fb44bc7084dbba414"
     },
     {
       "title": "待决",
-      "detail": "是否新建 Pattern of Pain 或 Product Idea Stress Test；Longbridge 仍未授权，晨报继续公开源。",
+      "detail": "是否试装 Pattern of Pain 或 Product Idea Stress Test；02384/03275 要不要打、打多少；Longbridge 仍未授权，晨报继续公开源。",
       "tag": "拍板",
-      "source": "https://app.notion.com/p/40062839976681d28706fb0f73efb4cc"
+      "source": "https://app.notion.com/p/402628399766810fb44bc7084dbba414"
     }
   ],
   "week_goals": [
@@ -106,8 +106,7 @@
       "chips": [
         "07:00 拉伸/轻骑",
         "20:00 JLaw 2"
-      ],
-      "today": true
+      ]
     },
     {
       "date": "2026-10-23",
@@ -115,8 +114,9 @@
       "chips": [
         "早睡优先",
         "02384/03275 认购截止约正午",
-        "06157 已延迟"
-      ]
+        "06157 股款拟退回"
+      ],
+      "today": true
     },
     {
       "date": "2026-10-24",
