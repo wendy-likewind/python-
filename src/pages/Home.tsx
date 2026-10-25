@@ -139,12 +139,6 @@ const Home = () => {
                 <Compass className="w-4 h-4" /> 港 fintech 求职陪跑
               </Link>
             </Button>
-            <Link
-              to="/workbench"
-              className="text-sm font-normal text-[#2C3531]/45 hover:text-[#5B8FA8] transition-colors underline-offset-4 hover:underline px-1"
-            >
-              今日工作台
-            </Link>
           </div>
         </section>
 
