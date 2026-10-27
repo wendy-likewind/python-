@@ -1,87 +1,94 @@
 {
-  "date": "2026-10-26",
+  "date": "2026-10-27",
   "timezone": "Asia/Shanghai",
-  "generated_at": "2026-10-26T08:15:00+08:00",
-  "sources_note": "日程来自 Google Calendar + Notion「（Daily）每日生活」与看板 §7.0（小白常用源）。情报：本早尚无「2026-10-26 知识晨报」，改用周末知识收集处新入库与看板摘要；不编造行情。今日花费：自动化回合无法直连小金 ledger，未见 10-26 已记账明细金额，故 spend 为空。",
+  "generated_at": "2026-10-27T08:15:00+08:00",
+  "sources_note": "日程：Google Calendar + Notion「（Daily）每日生活」近期 open + 小白 store（week_plan/tasks）。花费：小金 ledger transactions.csv（可读）。情报：尚无「2026-10-27 知识晨报」，改用 10-26 晨报与看板 §4.0；不编造行情。",
   "todos": [
     {
-      "title": "健身房轻上肢+肩胛激活",
-      "time": "07:00–07:30",
-      "note": "轻重建周；不冲刺不猛跳；跟腱友好。晚餐：清蒸巴沙鱼盘。补剂：复合B族+鱼油随早餐。",
+      "title": "出门见晨光 ≥5 分钟",
+      "time": "07:20–07:25",
+      "note": "健康定点；非正式日程。",
       "status": "open",
-      "tag": "训练"
+      "tag": "健康"
     },
     {
       "title": "查工资是否到账（预期 32,563 HKD）",
-      "time": "08:00–08:15",
-      "note": "到账后告诉财务大臣小金实际金额再正式入账。",
+      "time": "全日（昨日延）",
+      "note": "10/26 待办仍 open；到账后告诉小金实际金额再正式入账。ledger 仍为 expected，未实入账。",
       "status": "open",
       "tag": "财务"
     },
     {
       "title": "提交体检费用报销（约 4510 HKD）",
       "time": "全日",
-      "note": "10/25 已记账两项（金额未回传到本台）；预期保险覆盖较多。",
+      "note": "10/25 已记账 4510 HKD；预期保险覆盖较多。",
       "status": "open",
       "tag": "行政"
     },
     {
       "title": "交差饷",
       "time": "全日",
-      "note": "物业费已交清。差饷尚未交：发薪后再交。",
+      "note": "物业费已交清。差饷发薪后再交（原挂 10/26）。",
       "status": "open",
       "tag": "行政"
     },
     {
-      "title": "继续申请注销内地户口",
-      "note": "先确认银行身份证有效期已更新；办完告诉 Wendy 或小白划掉。",
+      "title": "完成 ZA First Advantage 背调",
+      "time": "全日",
+      "note": "ZhongAn 已发邀请；Gmail「START」→ pa4.fadv.com。办完告诉 Wendy 划掉。",
+      "status": "open",
+      "tag": "入职"
+    },
+    {
+      "title": "修改 ZA 飞书个人信息（审核未过，三项）",
+      "time": "全日",
+      "note": "① ZA 储蓄户 12 位账号+截图 ② 居住/通讯地址英文 ③ 再核 CMB Wing Lung Bank 起止日期。",
+      "status": "open",
+      "tag": "入职"
+    },
+    {
+      "title": "注销内地户口 · 11/2 深圳办理",
+      "note": "申请与伯伯约见已完成；2026-11-02 回深圳办理（时间待定）。银行身份证有效期仍先核对。",
       "status": "open",
       "tag": "进行中"
     },
     {
-      "title": "采购：早餐+本周晚餐材料",
-      "time": "18:00",
-      "note": "无糖希腊酸奶/植物酸奶；蓝莓或草莓或香蕉+苹果；周一晚巴沙鱼+西兰花；周四豆腐番茄蛋；周五虾仁。",
+      "title": "钢管舞课",
+      "time": "20:00–21:00",
+      "note": "备赛训练；课后注意恢复与睡眠。晚外食：偏清淡蒸鱼/白切鸡/清炒时蔬，主食减半。",
       "status": "open",
-      "tag": "生活"
-    },
-    {
-      "title": "JLaw 交易课·第1节",
-      "time": "20:00–20:45",
-      "note": "每周两节之一（周一）。学完整套后告诉小白停掉。",
-      "status": "open",
-      "tag": "学习"
+      "tag": "训练"
     }
   ],
   "spend": {
     "currency": "HKD",
-    "total_hkd": null,
-    "week_total_hkd": null,
+    "total_hkd": 0,
+    "week_total_hkd": 0,
     "items": [],
-    "empty_reason": "小金 ledger 本早未取到 10-26 明细金额；日历仅提示 10/25 已记账两项，无逐笔金额可回填。不编造。"
+    "empty_reason": "小金 ledger 截至刷新时无 2026-10-27 支出行；本周（10/26 起）亦无已记账 expense（仅有 10/26 工资 expected 32563，未实入账）。不编造。"
   },
   "intel": [
     {
       "title": "今日晨报尚未出",
-      "detail": "Notion 知识收集处尚无「2026-10-26 知识晨报」页；最近正式晨报仍为 10-23。本台不编造隔夜行情/IPO。",
+      "detail": "知识收集处尚无「2026-10-27 知识晨报」。最近正式晨报为 10-26（周末合并 + 舰队边界拍板）。本台不编造隔夜行情/IPO。",
       "tag": "缺口",
-      "source": "https://app.notion.com/p/3fa6283997668088baffd02e98fa064a"
+      "source": "https://app.notion.com/p/40562839976681528ea6cfec80e49502"
     },
     {
-      "title": "周末知识入库",
-      "detail": "10-24/25 新增阅读笔记：Jessi Cao 小红书从0到1；蓝哥AI · Grok Bot Pages 实操；虹安 · Grok Bot 48 玩法场景筛。与本周账号定位目标同向。",
+      "title": "10-26 晨报要点可扫",
+      "detail": "虹安 48 玩法 / 蓝哥 Pages / Jessi 小红书定位；投资简报归小M；非紧急通知并到早晚窗；Pattern/Stress Test 已并入小绿。",
       "tag": "知识",
-      "source": "https://app.notion.com/p/40362839976681b69d5cea5d015dd282"
+      "source": "https://app.notion.com/p/40562839976681528ea6cfec80e49502"
     },
     {
-      "title": "本周总目标已写回看板",
-      "detail": "主要目标：X、小红书、YouTube 账号设立和定位。见人场域：和 Valerie 尖沙咀吃饭（周五）。",
+      "title": "本周总目标仍有效",
+      "detail": "主要目标：X、小红书、YouTube 账号设立和定位。见人场域：和 Valerie 尖沙咀吃饭（周五 19:00）。",
       "tag": "拍板",
       "source": "https://app.notion.com/p/3fd6283997668021b81de71f546b4f5c"
     },
     {
-      "title": "行政与入职锚点",
-      "detail": "ZA 入职日 2026-11-30；体检报销约 4510 HKD 待提交；注销内地户口待银行身份证有效期更新后继续。",
+      "title": "入职行政今日优先",
+      "detail": "ZA 背调 START + 飞书退回三项待改；入职日 2026-11-30。体检报销约 4510 / 差饷 / 11-02 深圳销户并行。",
       "tag": "提醒",
       "source": "https://app.notion.com/p/3fd6283997668021b81de71f546b4f5c"
     }
@@ -89,7 +96,7 @@
   "week_goals": [
     {
       "title": "本周主要目标",
-      "detail": "X、小红书、YouTube 账号设立和定位（看板 §7.0 原话）"
+      "detail": "X、小红书、YouTube 账号设立和定位（看板 §4.0 原话）"
     },
     {
       "title": "本周事项 · 见人场域",
@@ -97,14 +104,13 @@
     },
     {
       "title": "从属节奏",
-      "detail": "轻重建周（跟腱友好）· 钢管周二 20:00 · JLaw 两节 · 行政：体检报销 / 差饷 / 注销户口推进"
+      "detail": "轻重建周（跟腱友好）· 钢管周二 20:00 · JLaw 周四 · 行政：背调/飞书三项/体检报销/差饷/11-02 销户"
     }
   ],
   "week_calendar": [
     {
       "date": "2026-10-26",
       "weekday": "周一",
-      "today": true,
       "chips": [
         "轻上肢 07:00",
         "查工资",
@@ -117,7 +123,10 @@
     {
       "date": "2026-10-27",
       "weekday": "周二",
+      "today": true,
       "chips": [
+        "晨光 07:20",
+        "背调/飞书",
         "钢管 20:00"
       ]
     },
@@ -125,7 +134,7 @@
       "date": "2026-10-28",
       "weekday": "周三",
       "chips": [
-        "（日历无定点）"
+        "（日历无定点；钢管待确认）"
       ]
     },
     {
