@@ -1,20 +1,13 @@
 {
-  "date": "2026-10-27",
+  "date": "2026-10-28",
   "timezone": "Asia/Shanghai",
-  "generated_at": "2026-10-27T08:15:00+08:00",
-  "sources_note": "日程：Google Calendar + Notion「（Daily）每日生活」近期 open + 小白 store（week_plan/tasks）。花费：小金 ledger transactions.csv（可读）。情报：尚无「2026-10-27 知识晨报」，改用 10-26 晨报与看板 §4.0；不编造行情。",
+  "generated_at": "2026-10-28T08:15:00+08:00",
+  "sources_note": "日程：Google Calendar + Notion「（Daily）每日生活」近期 open + 小白 store（week_plan/tasks）+ 个人看板 §3.3/§4。花费：小金 ledger transactions.csv。情报：尚无「2026-10-28 知识晨报」，改用 10-27 晨报与看板 §4.0；不编造行情。",
   "todos": [
     {
-      "title": "出门见晨光 ≥5 分钟",
-      "time": "07:20–07:25",
-      "note": "健康定点；非正式日程。",
-      "status": "open",
-      "tag": "健康"
-    },
-    {
       "title": "查工资是否到账（预期 32,563 HKD）",
-      "time": "全日（昨日延）",
-      "note": "10/26 待办仍 open；到账后告诉小金实际金额再正式入账。ledger 仍为 expected，未实入账。",
+      "time": "全日（延）",
+      "note": "Notion 仍 inbox/flag；ledger 仅有 10/26 expected，未按实入账。到账后告诉小金。",
       "status": "open",
       "tag": "财务"
     },
@@ -33,31 +26,17 @@
       "tag": "行政"
     },
     {
-      "title": "完成 ZA First Advantage 背调",
-      "time": "全日",
-      "note": "ZhongAn 已发邀请；Gmail「START」→ pa4.fadv.com。办完告诉 Wendy 划掉。",
-      "status": "open",
-      "tag": "入职"
-    },
-    {
-      "title": "修改 ZA 飞书个人信息（审核未过，三项）",
-      "time": "全日",
-      "note": "① ZA 储蓄户 12 位账号+截图 ② 居住/通讯地址英文 ③ 再核 CMB Wing Lung Bank 起止日期。",
-      "status": "open",
-      "tag": "入职"
-    },
-    {
       "title": "注销内地户口 · 11/2 深圳办理",
       "note": "申请与伯伯约见已完成；2026-11-02 回深圳办理（时间待定）。银行身份证有效期仍先核对。",
       "status": "open",
       "tag": "进行中"
     },
     {
-      "title": "钢管舞课",
-      "time": "20:00–21:00",
-      "note": "备赛训练；课后注意恢复与睡眠。晚外食：偏清淡蒸鱼/白切鸡/清炒时蔬，主食减半。",
+      "title": "本周主线：X / 小红书 / YouTube 账号设立与定位",
+      "time": "全日",
+      "note": "看板 §4.0 本周主要目标；日历今日无定点，适合推进账号定位。",
       "status": "open",
-      "tag": "训练"
+      "tag": "本周目标"
     }
   ],
   "spend": {
@@ -65,20 +44,20 @@
     "total_hkd": 0,
     "week_total_hkd": 0,
     "items": [],
-    "empty_reason": "小金 ledger 截至刷新时无 2026-10-27 支出行；本周（10/26 起）亦无已记账 expense（仅有 10/26 工资 expected 32563，未实入账）。不编造。"
+    "empty_reason": "小金 ledger 截至刷新时无 2026-10-28 支出行；本周（10/26 起）亦无已记账 expense（仅有 10/26 工资 expected 32563，未实入账）。不编造。"
   },
   "intel": [
     {
       "title": "今日晨报尚未出",
-      "detail": "知识收集处尚无「2026-10-27 知识晨报」。最近正式晨报为 10-26（周末合并 + 舰队边界拍板）。本台不编造隔夜行情/IPO。",
+      "detail": "知识收集处尚无「2026-10-28 知识晨报」。最近正式晨报为 10-27。本台不编造隔夜行情/IPO。",
       "tag": "缺口",
-      "source": "https://app.notion.com/p/40562839976681528ea6cfec80e49502"
+      "source": "https://app.notion.com/p/40662839976681f8b120c53397c4a72c"
     },
     {
-      "title": "10-26 晨报要点可扫",
-      "detail": "虹安 48 玩法 / 蓝哥 Pages / Jessi 小红书定位；投资简报归小M；非紧急通知并到早晚窗；Pattern/Stress Test 已并入小绿。",
+      "title": "10-27 晨报要点可扫",
+      "detail": "小晚不在自媒体摘录（平台规则/接触表面积/口播三层）；规则与看板收成两入口；待读书单近期开读；侧边栏独立 Pain/Stress Test Bot 清理仍待拍板。",
       "tag": "知识",
-      "source": "https://app.notion.com/p/40562839976681528ea6cfec80e49502"
+      "source": "https://app.notion.com/p/40662839976681f8b120c53397c4a72c"
     },
     {
       "title": "本周总目标仍有效",
@@ -87,8 +66,8 @@
       "source": "https://app.notion.com/p/3fd6283997668021b81de71f546b4f5c"
     },
     {
-      "title": "入职行政今日优先",
-      "detail": "ZA 背调 START + 飞书退回三项待改；入职日 2026-11-30。体检报销约 4510 / 差饷 / 11-02 深圳销户并行。",
+      "title": "入职行政已收口两项",
+      "detail": "个人看板：ZA 飞书三项 + First Advantage 背调已完成（2026-10-27）。入职日 2026-11-30。仍挂：体检报销约 4510 / 差饷 / 11-02 深圳销户。",
       "tag": "提醒",
       "source": "https://app.notion.com/p/3fd6283997668021b81de71f546b4f5c"
     }
@@ -104,7 +83,7 @@
     },
     {
       "title": "从属节奏",
-      "detail": "轻重建周（跟腱友好）· 钢管周二 20:00 · JLaw 周四 · 行政：背调/飞书三项/体检报销/差饷/11-02 销户"
+      "detail": "轻重建周（跟腱友好）· 钢管周二已过 · 周三钢管待确认 · JLaw 周四 · 行政：体检报销/差饷/11-02 销户（背调与飞书三项已完成）"
     }
   ],
   "week_calendar": [
@@ -123,18 +102,20 @@
     {
       "date": "2026-10-27",
       "weekday": "周二",
-      "today": true,
       "chips": [
         "晨光 07:20",
-        "背调/飞书",
+        "背调/飞书（已完成）",
         "钢管 20:00"
       ]
     },
     {
       "date": "2026-10-28",
       "weekday": "周三",
+      "today": true,
       "chips": [
-        "（日历无定点；钢管待确认）"
+        "账号设立主线",
+        "行政收口",
+        "（钢管待确认）"
       ]
     },
     {
