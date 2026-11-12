@@ -1,8 +1,8 @@
 {
   "timezone": "Asia/Shanghai",
-  "generated_at": "2026-11-11T08:03:35+08:00",
+  "generated_at": "2026-11-12T08:10:00+08:00",
   "week_of": "2026-11-09",
-  "label": "本周 11/09–11/15 · 继续知识库重整 + 两场饭局（Jason 改到 11/16）· 周三 lunch group",
+  "label": "本周 11/09–11/15 · 继续知识库重整 + 今晚 Amber、明天 Elvis＆Vivien（Jason 改到 11/16）",
   "week_goals": [
     {
       "title": "本周主要目标",
@@ -40,7 +40,6 @@
     {
       "date": "2026-11-11",
       "weekday": "周三",
-      "today": true,
       "chips": [
         "轻骑 07:00",
         "lunch group 12:00"
@@ -49,6 +48,7 @@
     {
       "date": "2026-11-12",
       "weekday": "周四",
+      "today": true,
       "chips": [
         "轻上肢 07:00",
         "Amber 19:00",
