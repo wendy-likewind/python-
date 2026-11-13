@@ -1,8 +1,8 @@
 {
   "timezone": "Asia/Shanghai",
-  "generated_at": "2026-11-12T08:10:00+08:00",
+  "generated_at": "2026-11-13T08:05:00+08:00",
   "week_of": "2026-11-09",
-  "label": "本周 11/09–11/15 · 继续知识库重整 + 今晚 Amber、明天 Elvis＆Vivien（Jason 改到 11/16）",
+  "label": "本周 11/09–11/15 · 继续知识库重整 + 今晚 Elvis＆Vivien（Jason 改到 11/16）",
   "week_goals": [
     {
       "title": "本周主要目标",
@@ -14,7 +14,7 @@
     },
     {
       "title": "从属节奏",
-      "detail": "轻重建（跟腱友好）· 周一拉伸+采购+蒜蓉鸡胸+JLaw · 周二乳腺检查 11:30 金钟+钢管 20:00 · 周三轻骑+lunch group离职前聚餐（无 Jason）· 周四轻上肢+Amber（同晚有 JLaw 占位）· 周五 Elvis＆Vivien · 周六可选自主练+清蒸巴沙鱼 · 周日休息拉伸 · 下周一 11/16 19:00 Jason"
+      "detail": "轻重建（跟腱友好）· 周一拉伸+采购+蒜蓉鸡胸+JLaw · 周二乳腺检查 11:30 金钟+钢管 20:00 · 周三轻骑+lunch group离职前聚餐（无 Jason）· 周四轻上肢+Amber（同晚有 JLaw 占位）· 周五 Elvis＆Vivien+一句复盘 · 周六找永隆推荐信 11:00+可选自主练+清蒸巴沙鱼 · 周日休息拉伸 · 下周一 11/16 19:00 Jason"
     }
   ],
   "week_calendar": [
@@ -48,7 +48,6 @@
     {
       "date": "2026-11-12",
       "weekday": "周四",
-      "today": true,
       "chips": [
         "轻上肢 07:00",
         "Amber 19:00",
@@ -58,6 +57,7 @@
     {
       "date": "2026-11-13",
       "weekday": "周五",
+      "today": true,
       "chips": [
         "Elvis＆Vivien 19:00"
       ]
@@ -67,6 +67,7 @@
       "weekday": "周六",
       "chips": [
         "可选自主练钢管 10:00",
+        "找永隆推荐信 11:00",
         "清蒸巴沙鱼 19:00"
       ]
     },
